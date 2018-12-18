@@ -10,22 +10,25 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">        
     </head>
     <body>
-        <div class="container">
-            <h1>Spellsword</h1>
-            <hr/>
-            <div class="row">
-                <div class="col-md-2" id="">
+        <div class="row">
+            <div class="col-md-2" id="navigation">
+                <div class="container" style="padding-top:5%">
                     Navigation Menu
                 </div>
-                <div class="col-md-10">
-                    Main Content
-                </div>
-                <div>
             </div>
-        </div>
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
+            <div class="col-md-10">
+
+                <h1 class="text-center">Spellsword</h1>
+                <hr/>
+                <div>
+                    Navigation Menu
+                </div>
+
+            </div>
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
+            <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
     </body>
 </html>

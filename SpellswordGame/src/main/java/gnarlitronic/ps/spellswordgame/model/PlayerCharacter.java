@@ -5,6 +5,8 @@
  */
 package gnarlitronic.ps.spellswordgame.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Elnic
@@ -145,6 +147,87 @@ public class PlayerCharacter {
 
     public void setCriticalStrikeChance(int criticalStrikeChance) {
         this.criticalStrikeChance = criticalStrikeChance;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + this.playerId;
+        hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 67 * hash + this.maxHealth;
+        hash = 67 * hash + this.health;
+        hash = 67 * hash + this.maxMana;
+        hash = 67 * hash + this.mana;
+        hash = 67 * hash + this.level;
+        hash = 67 * hash + this.magicSkillLvl;
+        hash = 67 * hash + this.swordSkillLvl;
+        hash = 67 * hash + this.equippedSwordId;
+        hash = 67 * hash + this.equippedMagicId;
+        hash = 67 * hash + this.equippedArmorId;
+        hash = 67 * hash + this.unarmedDmg;
+        hash = 67 * hash + this.experience;
+        hash = 67 * hash + this.criticalStrikeChance;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PlayerCharacter other = (PlayerCharacter) obj;
+        if (this.playerId != other.playerId) {
+            return false;
+        }
+        if (this.maxHealth != other.maxHealth) {
+            return false;
+        }
+        if (this.health != other.health) {
+            return false;
+        }
+        if (this.maxMana != other.maxMana) {
+            return false;
+        }
+        if (this.mana != other.mana) {
+            return false;
+        }
+        if (this.level != other.level) {
+            return false;
+        }
+        if (this.magicSkillLvl != other.magicSkillLvl) {
+            return false;
+        }
+        if (this.swordSkillLvl != other.swordSkillLvl) {
+            return false;
+        }
+        if (this.equippedSwordId != other.equippedSwordId) {
+            return false;
+        }
+        if (this.equippedMagicId != other.equippedMagicId) {
+            return false;
+        }
+        if (this.equippedArmorId != other.equippedArmorId) {
+            return false;
+        }
+        if (this.unarmedDmg != other.unarmedDmg) {
+            return false;
+        }
+        if (this.experience != other.experience) {
+            return false;
+        }
+        if (this.criticalStrikeChance != other.criticalStrikeChance) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return true;
     }
     
 }
