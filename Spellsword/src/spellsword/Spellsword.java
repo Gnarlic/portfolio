@@ -19,10 +19,6 @@ public class Spellsword {
      */
     public static void main(String[] args) throws Exception{
         
-        MyClass test = new MyClass();
-        
-        System.out.println(test.getValue("fubar", 1));
-        /**
         Scanner scan = new Scanner(System.in);
 
         int health = 100;
@@ -102,7 +98,7 @@ public class Spellsword {
             health = 100;
             enemyHealth = 100;
             kp = Integer.parseInt(scan.nextLine());
-    }**/
+    }
         
     }
 
