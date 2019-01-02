@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vending Machine</title>
+    <link href="css/bootstrap.css"
+    rel="stylesheet">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Vending Machine</h1>
+        <hr/>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 border-right border-primary text-center">
+                <div class="row card-deck" style="font-size:15">
+                    <div class="col-md-4 card border-primary" id="c1">
+                        <button class="a" id="b1">
+                            <div class="text-left" id="button1"></div>
+                            <div id="item1Name"></div>
+                            <br>
+                            <div id="item1Price"></div>
+                            <br/>
+                            <div id="item1Quantity"></div>
+                            <br/>
+                        </button>
+                    </div>
+                    <div class="col-md-4 card border-primary">
+                        <button class="a" id="b2">
+                            <div class="text-left" id="button2"></div>
+                            <div id="item2Name"></div>
+                            <br>
+                            <div id="item2Price"></div>
+                            <br/>
+                            <div id="item2Quantity"></div>
+                            <br/>
+                        </button>
+                    </div>
+                    <div class="col-md-4 card border-primary">
+                        <button class="a" id="b3">
+                            <div class="text-left" id="button3"></div>
+                            <div id="item3Name"></div>
+                            <br>
+                            <div id="item3Price"></div>
+                            <br/>
+                            <div id="item3Quantity"></div>
+                            <br/>
+                        </button>
+                    </div> 
+                </div>
+                <br/>
+                <div class="row card-deck">
+                    <div class="col-md-4 card border-primary">
+                        <button class="a" id="b4">
+                            <div class="text-left" id="button4"></div>
+                            <div id="item4Name"></div>
+                            <br>
+                            <div id="item4Price"></div>
+                            <br/>
+                            <div id="item4Quantity"></div>
+                            <br/>
+                        </button>
+                    </div>
+                    <div class="col-md-4 card border-primary">
+                        <button class="a" id="b5">
+                            <div class="text-left" id="button5"></div>
+                            <div id="item5Name"></div>
+                            <br>
+                            <div id="item5Price"></div>
+                            <br/>
+                            <div id="item5Quantity"></div>
+                            <br/>
+                        </button>
+                    </div>
+                    <div class="col-md-4 card border-primary">
+                        <button class="a" id="b6">
+                            <div class="text-left" id="button6"></div>
+                            <div id="item6Name"></div>
+                            <br>
+                            <div id="item6Price"></div>
+                            <br/>
+                            <div id="item6Quantity"></div>
+                            <br/>
+                        </button>
+                    </div>
+                </div>
+                <br/>
+                <div class="row card-deck">
+                    <div class="col-md-4 card border-primary">
+                        <button class="a" id="b7">
+                            <div class="text-left" id="button7"></div>
+                            <div id="item7Name"></div>
+                            <br>
+                            <div id="item7Price"></div>
+                            <br/>
+                            <div id="item7Quantity"></div>
+                            <br/>
+                        </button>
+                    </div>
+                    <div class="col-md-4 card border-primary">
+                        <button class="a" id="b8">
+                            <div class="text-left" id="button8"></div>
+                            <div id="item8Name"></div>
+                            <br>
+                            <div id="item8Price"></div>
+                            <br/>
+                            <div id="item8Quantity"></div>
+                            <br/>
+                        </button>
+                    </div>
+                    <div class="col-md-4 card border-primary">
+                        <button class="a" id="b9">
+                            <div class="text-left" id="button9"></div>
+                            <div id="item9Name"></div>
+                            <br>
+                            <div id="item9Price"></div>
+                            <br/>
+                            <div id="item9Quantity"></div>
+                            <br/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="addFunds" class="text-center">
+                            <h4>Total $ In</h4>
+                            <input type="text" id="fundCounter" class="text-center" value="" readonly>
+                            <br/>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="button"
+                                    id="dollar"
+                                    class="btn btn-primary btn-sm w-100">Add Dollar
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button"
+                                    id="quarter"
+                                    class="btn btn-primary btn-sm w-100">Add Quarter
+                                    </button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="button"
+                                    id="dime"
+                                    class="btn btn-primary btn-sm w-100">Add Dime
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button"
+                                    id="nickel"
+                                    class="btn btn-primary btn-sm w-100">Add Nickel
+                                    </button>
+                                </div>
+                            </div>
+                            <hr/>
+                           
+                        </div>
+                        <div id="makePurchase" class="text-center">
+                            <div id="messages">
+                                <h4>Messages</h4>
+                                <textarea class="" id="messageDisplay" val="" rows="2" readonly></textarea>
+                            </div>
+                            <br>
+                            <div id="itemDisplay" class="text-center row">
+                                <label class="text-center col-md-5">Item:</label>
+                                <input type="text" id="itemNumber" class="col-md-6" value="" readonly>
+                            </div>
+                            <div class="purchaseButton text-center">
+                                <br>
+                                <button 
+                                    id="buyNow" 
+                                    class="btn btn-primary btn-sm col-md-10">Make Purchase</button>
+                            </div>
+                            <hr/>
+                            <div id="changeDisplay" class="text-center">
+                                <h4>Change</h4>
+                                <textarea id="changeReturn" val=""  rows="4" readonly></textarea>
+                                <br>
+                                <br>
+                                <button 
+                                    id="returnChange" 
+                                    class="btn btn-primary btn-sm">Change Return</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="container">
+        
+    </div>
+</body>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/home.js"></script>
+</html>
