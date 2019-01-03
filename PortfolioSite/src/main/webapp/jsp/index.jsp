@@ -17,6 +17,10 @@
 
     </head>
     <style>
+        .gradient {
+            background: rgb(2,0,36);
+            background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(120,158,178,1) 0%, rgba(0,212,255,0) 50%);
+        }
         .link-highlight {
             height:50px;
             text-align:center;
@@ -118,48 +122,10 @@
         .item span {
             font-style: normal;
         }
-        .panel {
-            border: 1px solid #f4511e; 
-            border-radius:0 !important;
-            transition: box-shadow 0.5s;
-        }
-        .panel:hover {
-            box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-        }
-        .panel-footer .btn:hover {
-            border: 1px solid #f4511e;
-            background-color: #fff !important;
-            color: #f4511e;
-        }
-        .panel-heading {
-            color: #fff !important;
-            background-color: #f4511e !important;
-            padding: 25px;
-            border-bottom: 1px solid transparent;
-            border-top-left-radius: 0px;
-            border-top-right-radius: 0px;
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
-        }
-        .panel-footer {
-            background-color: white !important;
-        }
-        .panel-footer h3 {
-            font-size: 32px;
-        }
-        .panel-footer h4 {
-            color: #aaa;
-            font-size: 14px;
-        }
-        .panel-footer .btn {
-            margin: 15px 0;
-            background-color: #f4511e;
-            color: #fff;
-        }
         .navbar {
             height:50px;
             margin-bottom: 0;
-            background-color: #89A2AF;
+            background-color: #789EB2;
             background-size:100%;
             z-index: 9999;
             border: 0;
@@ -206,6 +172,9 @@
             -webkit-animation-duration: 1s;
             visibility: visible;
         }
+        li {
+            font-family: Montserrat, sans-serif;
+        }
         @keyframes slide {
             0% {
                 opacity: 0;
@@ -251,51 +220,198 @@
                 </button>
                 <a class="navbar-brand" href="#myPage">Home</a>
             </div>
-            <div class="collapse navbar-collapse" style="background-color:#89A2AF" id="myNavbar">
+            <div class="collapse navbar-collapse" style="background-color:#789EB2" id="myNavbar">
                 <ul class="nav navbar-nav ml-auto">
-                    <a href="${pageContext.request.contextPath}/jsp/index.jsp/#about"><li class="nav-item  link-highlight">ABOUT</li></a>
+                    <a href="#about"><li class="nav-item  link-highlight">ABOUT</li></a>
 
-                    <a href="${pageContext.request.contextPath}/jsp/resume.jsp"><li class="nav-item  link-highlight">RESUME</li></a>
-                    
-                    <li class="nav-item dropdown link-highlight">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Projects
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="http://www.gnarlitronic.com/superherosightings">Superhero Sightings</a>
-                            <a class="dropdown-item" href="http://www.gnarlitronic.com/vendingmachine">Vending Machine</a>
-                            <a class="dropdown-item" href="http://www.gnarlitronic.com/spellsword">Spellsword Game</a>
-                        </div>
-                    </li>
+                    <a href="#resume"><li class="nav-item  link-highlight">RESUME</li></a>
 
-                    <a href="https://www.linkedin.com/in/nicholas-seb-thompson/"><li class="nav-item link-highlight">LINKEDIN</li></a>
+                    <a href="#projects"><li class="nav-item link-highlight">PROJECTS</li></a>
 
-                    <a href="mailto:nicholas.seb.thompson@gmail.com" target="_top"><li class="nav-item  link-highlight">CONTACT</li></a>
+                    <a href="https://www.github.com/Gnarlic"><li class="nav-item link-highlight">GITHUB</li></a>
+
+                    <a href="https://www.linkedin.com/in/nicholas-seb-thompson"><li class="nav-item link-highlight">LINKEDIN</li></a>
+
+                    <a href="#contact"><li class="nav-item  link-highlight">CONTACT</li></a>
                 </ul>
             </div>
 
         </nav>
         <div class="jumbotron text-center text-white" style="margin:0;background:transparent" id="myPage">
-            <h1 style="font-size:10.0vw;text-shadow:-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Nicholas Thompson</h1>
+            <h1 style="font-size:9.0vw;text-shadow:-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Hi, I'm Nicholas Thompson.</h1>
         </div>
-        <div id="about" class="container-fluid top" style="height:500px;background-color:#89A2AF;">
+        <div id="about" class="container-fluid" style="height:500px;background-color:#789EB2;">
             <div class="row text-white">
+                <div class="col-md-1"></div>
                 <div class="col-md-2"><img src="${pageContext.request.contextPath}/images/1202182203_HDR_3.jpg" style="width:100%;border:solid black 2px"></div>
                 <div class="col-md-6">
-                    <h3 class="text-center" style="text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Full Stack Web Developer</h4>
+                    <p class="text-center" style="font-size:20pt">
+                        I'm a full stack web developer with an interest in clean design, and efficient use of code to create solutions. Always learning something new. Here you can check out my latest work.
+                        I'm currently developing Spellsword, a browser-based rogue-like RPG. You can find my contact info <a style="text-decoration:underline" href="#contact">here.</a>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <i class="fa fa-code logo" style="color:#ffffff;text-shadow:-3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;"></i>     
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="" style="height:300px">
+
+        </div>
+        <div id="resume" class="container-fluid text-white" style="background-color:#789EB2">
+            <div class="text-center">
+                <h2 class="text-white">Technical Skills</h2>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <ul style="list-style-type:none">
+                        <li>Java</li>
+                        <li>Kotlin</li>
+                        <li>HTML / CSS / Javascript</li>
+                        <li>MySql</li>
+                        <li>JavaServer Pages (JSP)</li>
+                    </ul>
                 </div>
                 <div class="col-md-4">
-                    <i class="fa fa-code logo" style="color:#ffffff;text-shadow:-3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;"></i>     
+                    <ul style="list-style-type:none">
+                        <li>SOAP/REST</li>
+                        <li>TDD</li>
+                        <li>OOP</li>
+                        <li>jQuery</li>
+                        <li>Data / Class Modeling</li>
+                        <li>Netbeans IDE</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul style="list-style-type:none">
+                        <li>Spring MVC / JDBC / SECURITY</li>
+                        <li>Bootstrap</li>
+                        <li>Version Control (Git)</li>
+                        <li>Adobe Photoshop</li>
+                        <li>Adobe Illustrator</li>
+                    </ul>
+                </div>
+            </div>
+            <hr/>
+            <div class="text-center">
+                <h2 class="text-white">Technical Experience</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <p>
+                        The Software Guild - <br>
+                        Java Apprentice
+                    <ul>
+                        <li>
+                            Full-stack development using Java, Spring frameworks, HTML, CSS, Javascript and Bootstrap. Used Atlassing tools for version control, workflow management, and communication.
+                            Built console and web based programs, including:
+                            <ul>
+                                <li>
+                                    An app for tracking sightings of superbeings. Logged info for superbeings, organizations they belong to, locations, and dates. Specific functions are locked behind user roles implemented using Spring security.
+                                </li>
+                                <li>
+                                    A vending machine application that tracks inventory, currency entered, and returns correct change in the least amount of coins.
+                                </li>
+                                <li>
+                                    A Dvd library app that stores dvd information and is searchable.
+                                </li>
+                            </ul>
+                        </li>
+                        These applications used Java, MySql, JavaServer Pages, jQuery, JSON, and ajax.
+                    </ul>
+                    </p>
+                    <p>
+                        Experience in the Workplace - <br>
+                    <ul>
+                        <li>
+                            Terminix - Helped implement new system for route management software for field technicians.
+                        </li>
+                        <li>
+                            Delta Global Services - Daily use of command line software for flight and ticketing information.
+                        </li>
+                        <li>
+                            Pizza Factory - Use of excel for sales information, as well as Point-of-Sale software at registers.
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+            <div>
+                <div class="text-center">
+                    <h2 class="text-white">Education</h2>
+                </div>
+                <div>
+                    <table class="table text-center">
+                        <tr>
+                            <th>
+                                The Software Guild
+                            </th>                 
+                            <th>
+                                2017-2018
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Java Apprenticeship Program
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Palomar College
+                            </th>
+                            <th>
+                                2008-2013
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                General Education / Illustration
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
-        <div style="height:500px">
+        <div class="" style="height:300px;">
 
         </div>
-        <div id="contact" class="container-fluid top" style="height:500px;background-color:#89A2AF;">
+        <div id="projects" class="container-fluid" style="background-color:#789EB2">
             <div>
-                <ul>
-                    <li><a href="mailto:nicholas.seb.thompson@gmail.com" targer="_top">Email</a></li>
+                <h2 class="text-center text-white">Personal Projects</h2>
+            </div>
+            <div>
+                <p class="text-white">
+                        Personal Projects - <br>
+                    <ul class="text-white">
+                        <li>
+                            <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/spellsword">Spellsword</a> - Rogue-like fantasy RPG. Combining magic and weapons, fight enemies to gain gold and better equipment. The different combinations of magic and weapons drastically change combat.
+                            will be hosted here soon, and on github.
+                        </li>
+                        <li>
+                            <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/deltav">DeltaV</a> - Basic thrust calculator for rockets that displays delta-v, burn time, and starting and ending thrust. Calculations can be saved.
+                        </li>
+                        <li>
+                            <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/locationlog">Travel Log</a> - (In Planning) Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.
+                        </li>
+                    </ul>
+                    </p>
+            </div>
+        </div>
+        <div style="height:300px">
+
+        </div>
+        <div id="contact" class="container-fluid" style="height:300px;background-color:#789EB2;">
+            <div class="text-center text-white" style="text-shadow:-3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;">
+                <h1>Contact Information</h1>
+            </div>
+            <div class="text-white text-center">
+                <ul style="list-style-type:none">
+                    <li><h1><a href="mailto:nicholas.seb.thompson@gmail.com" targer="_top">Email: Nicholas.seb.thompson@gmail.com</a></h1></li>
+                    <li><h1>Phone: 541-390-4185</h1></li>
                 </ul>
             </div>
         </div>
