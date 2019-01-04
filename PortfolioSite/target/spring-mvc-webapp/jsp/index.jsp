@@ -27,7 +27,7 @@
             background-image: linear-gradient(to right, transparent 50%, white 100%);
             background-origin: 0;
             background-size: 200% 200%;
-            background-repeat: repeat-x;
+            background-repeat:repeat-x;
             background-position: 0 100%;
             transition: background-position 0.5s;
             padding-top:15px;
@@ -37,7 +37,7 @@
 
         .link-highlight:hover {
             background-position: -100% 100%;
-            color:red;
+            color:#767681;
         }
 
         .top {
@@ -52,6 +52,7 @@
             background-position:center;
             background-repeat: no-repeat;
             background-size: cover;
+            -webkit-background-size: cover;
         }
         body {
             font: 400 15px Lato, sans-serif;
@@ -74,7 +75,7 @@
         }  
         .jumbotron {
 
-            color: #fff;
+            color: #FFF7E2;
             padding: 100px 25px;
             font-family: Montserrat, sans-serif;
         }
@@ -125,7 +126,7 @@
         .navbar {
             height:50px;
             margin-bottom: 0;
-            background-color: #789EB2;
+            background-color: #256384;
             background-size:100%;
             z-index: 9999;
             border: 0;
@@ -158,13 +159,7 @@
         .navbar-default .navbar-toggle {
             border-color: transparent;
             color: #fff !important;
-        }
-        footer .glyphicon {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-        .slideanim {visibility:hidden;}
+        } 
         .slide {
             animation-name: slide;
             -webkit-animation-name: slide;
@@ -172,6 +167,16 @@
             -webkit-animation-duration: 1s;
             visibility: visible;
         }
+        .slideanim {
+            visibility:hidden;
+        }
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+
         li {
             font-family: Montserrat, sans-serif;
         }
@@ -220,8 +225,8 @@
                 </button>
                 <a class="navbar-brand" href="#myPage">Home</a>
             </div>
-            <div class="collapse navbar-collapse" style="background-color:#789EB2" id="myNavbar">
-                <ul class="nav navbar-nav ml-auto">
+            <div class="collapse navbar-collapse" style="background-color: #256384;max-width:100%" id="myNavbar">
+                <ul class="nav navbar-nav mx-auto" style="max-width:100%">
                     <a href="#about"><li class="nav-item  link-highlight">ABOUT</li></a>
 
                     <a href="#resume"><li class="nav-item  link-highlight">RESUME</li></a>
@@ -237,29 +242,27 @@
             </div>
 
         </nav>
-        <div class="jumbotron text-center text-white" style="margin:0;background:transparent" id="myPage">
+        <div class="jumbotron text-center" style="background:transparent" id="myPage">
             <h1 style="font-size:9.0vw;text-shadow:-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Hi, I'm Nicholas Thompson.</h1>
         </div>
-        <div id="about" class="container-fluid" style="height:500px;background-color:#789EB2;">
+        <div id="about"></div>
+        <div  class="container pt-4" style="background-color:#064378;">
             <div class="row text-white">
-                <div class="col-md-1"></div>
-                <div class="col-md-2"><img src="${pageContext.request.contextPath}/images/1202182203_HDR_3.jpg" style="width:100%;border:solid black 2px"></div>
-                <div class="col-md-6">
+                <div class="col-md-3"><div></div><img src="${pageContext.request.contextPath}/images/1202182203_HDR_3.jpg" style="width:100%;border:solid black 2px"></div>
+                <div class="col-md-6"><div></div>
                     <p class="text-center" style="font-size:20pt">
-                        I'm a full stack web developer with an interest in clean design, and efficient use of code to create solutions. Always learning something new. Here you can check out my latest work.
-                        I'm currently developing Spellsword, a browser-based rogue-like RPG. You can find my contact info <a style="text-decoration:underline" href="#contact">here.</a>
+                        I'm a full stack web developer ready to tackle any project. I like to learn new things regularly. A skillset is never complete. Here you can check out my latest work.
+                        I'm currently developing Spellsword, a browser-based rogue-like RPG as a personal project.
                     </p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3 text-center"><div></div>
                     <i class="fa fa-code logo" style="color:#ffffff;text-shadow:-3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;"></i>     
                 </div>
-                <div class="col-md-1"></div>
-            </div>
-        </div>
-        <div class="" style="height:300px">
 
+            </div>
+            <hr/>
         </div>
-        <div id="resume" class="container-fluid text-white" style="background-color:#789EB2">
+        <div id="resume" class="container text-white" style="background-color:#064378">
             <div class="text-center">
                 <h2 class="text-white">Technical Skills</h2>
             </div>
@@ -310,6 +313,7 @@
                             <ul>
                                 <li>
                                     An app for tracking sightings of superbeings. Logged info for superbeings, organizations they belong to, locations, and dates. Specific functions are locked behind user roles implemented using Spring security.
+                                    <a style="text-decoration:underline" href="http://www.gnarlitronic.com/superhero">Click here to check it out</a> - Log in with user "user" and password "password".
                                 </li>
                                 <li>
                                     A vending machine application that tracks inventory, currency entered, and returns correct change in the least amount of coins.
@@ -376,43 +380,39 @@
                 </div>
             </div>
         </div>
-        <div class="" style="height:300px;">
-
-        </div>
-        <div id="projects" class="container-fluid" style="background-color:#789EB2">
+        <div id="projects" class="container pt-4" style="background-color:#064378">
             <div>
                 <h2 class="text-center text-white">Personal Projects</h2>
             </div>
             <div>
                 <p class="text-white">
-                        Personal Projects - <br>
-                    <ul class="text-white">
-                        <li>
-                            <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/spellsword">Spellsword</a> - Rogue-like fantasy RPG. Combining magic and weapons, fight enemies to gain gold and better equipment. The different combinations of magic and weapons drastically change combat.
-                            will be hosted here soon, and on github.
-                        </li>
-                        <li>
-                            <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/deltav">DeltaV</a> - Basic thrust calculator for rockets that displays delta-v, burn time, and starting and ending thrust. Calculations can be saved.
-                        </li>
-                        <li>
-                            <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/locationlog">Travel Log</a> - (In Planning) Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.
-                        </li>
-                    </ul>
-                    </p>
+                    Personal Projects - <br>
+                <ul class="text-white">
+                    <li>
+                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/spellsword" disabled>Spellsword</a> - Rogue-like fantasy RPG. Combining magic and weapons, fight enemies to gain gold and better equipment. The different combinations of magic and weapons drastically change combat.
+                        will be hosted here soon, and on github.
+                    </li>
+                    <li>
+                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/deltav">DeltaV</a> - Basic thrust calculator for rockets that displays delta-v, burn time, and starting and ending thrust. Calculations can be saved.
+                    </li>
+                    <li>
+                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/locationlog">Travel Log</a> - (In Planning) Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.
+                    </li>
+                </ul>
+                </p>
             </div>
         </div>
-        <div style="height:300px">
-
-        </div>
-        <div id="contact" class="container-fluid" style="height:300px;background-color:#789EB2;">
-            <div class="text-center text-white" style="text-shadow:-3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;">
+        <div id="contact" class="container pt-4" style="background-color:#064378;">
+            <div class="text-center text-white" style="text-shadow:-3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;height:100%">
                 <h1>Contact Information</h1>
             </div>
             <div class="text-white text-center">
-                <ul style="list-style-type:none">
-                    <li><h1><a href="mailto:nicholas.seb.thompson@gmail.com" targer="_top">Email: Nicholas.seb.thompson@gmail.com</a></h1></li>
+                <p>
+                <ul style="list-style-type:none;">
+                    <li><h1><a style="word-break: break-all" href="mailto:nicholas.seb.thompson@gmail.com" targer="_top">Email: Nicholas.seb.thompson@gmail.com</a></h1></li>
                     <li><h1>Phone: 541-390-4185</h1></li>
                 </ul>
+                </p>
             </div>
         </div>
 
