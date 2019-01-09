@@ -389,14 +389,20 @@
                     Personal Projects - <br>
                 <ul class="text-white">
                     <li>
-                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/spellsword" disabled>Spellsword</a> - Rogue-like fantasy RPG. Combining magic and weapons, fight enemies to gain gold and better equipment. The different combinations of magic and weapons drastically change combat.
+                        <a style="font-size:16pt;text-decoration:underline">Spellsword</a> - (First iteration coming soon) Rogue-like fantasy RPG. Combining magic and weapons, fight enemies to gain gold and better equipment. The different combinations of magic and weapons drastically change combat.
                         will be hosted here soon, and on github.
                     </li>
                     <li>
-                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/deltav">DeltaV</a> - Basic thrust calculator for rockets that displays delta-v, burn time, and starting and ending thrust. Calculations can be saved.
+                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Calculator web app.
                     </li>
                     <li>
-                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/locationlog">Travel Log</a> - (In Planning) Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.
+                        <a style="font-size:16pt;text-decoration:underline">DeltaV</a> - (Coming Soon) Basic thrust calculator for rockets that displays delta-v, burn time, and starting and ending thrust. Calculations can be saved.
+                    </li>
+                    <li>
+                        <a style="font-size:16pt;text-decoration:underline">Travel Log</a> - (Coming Soon) Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.
+                    </li>
+                    <li>
+                        <h3>Other projects are on my Github account</h3>
                     </li>
                 </ul>
                 </p>

@@ -5,10 +5,15 @@
  */
 package gnarlitronic.ps.spellswordgame.controller;
 
+import org.springframework.stereotype.Controller;
+
 /**
  *
  * @author Elnic
  */
+@Controller
 public class GameController {
+    
+    
     
 }

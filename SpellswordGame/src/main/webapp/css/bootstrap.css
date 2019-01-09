@@ -41,6 +41,10 @@
   box-sizing: border-box;
 }
 
+.whitelink {
+   color:white;text-decoration:none;background-color:transparent 
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;

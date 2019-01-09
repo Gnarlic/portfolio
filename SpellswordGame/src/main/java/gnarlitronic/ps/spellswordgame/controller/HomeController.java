@@ -23,4 +23,11 @@ public class HomeController {
         return "index";
     }
     
+    @RequestMapping(value="/login", method=RequestMethod.GET)
+    public String loginPage(Model model) {
+        return "userlogin";
+    }
+    
+    
+    
 }
