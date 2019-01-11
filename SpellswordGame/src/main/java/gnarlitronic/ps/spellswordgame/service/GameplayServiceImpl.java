@@ -6,9 +6,11 @@
 package gnarlitronic.ps.spellswordgame.service;
 
 import gnarlitronic.ps.spellswordgame.model.Enemy;
+import gnarlitronic.ps.spellswordgame.model.Magic;
 import gnarlitronic.ps.spellswordgame.model.PlayerCharacter;
 import gnarlitronic.ps.spellswordgame.model.Sword;
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  *
@@ -16,7 +18,7 @@ import java.util.HashMap;
  */
 public class GameplayServiceImpl implements GameplayService {
 
-    private Enemy enemy;
+    private Enemy enemy = new Enemy();
     
     private void setupEnemy() {
         enemy.setEnemyId(1);
@@ -33,7 +35,7 @@ public class GameplayServiceImpl implements GameplayService {
         enemy.setPoints(25);
     }
     
-    private Sword sword;
+    private Sword sword = new Sword();
     
     private void newSword() {
         sword.setSwordId(1);
@@ -47,7 +49,7 @@ public class GameplayServiceImpl implements GameplayService {
         sword.setElementalType("Ice");
     }
     
-    private PlayerCharacter pc;
+    private PlayerCharacter pc = new PlayerCharacter();
     
     private void newCharacter() {
         pc.setPlayerId(1);
@@ -62,15 +64,40 @@ public class GameplayServiceImpl implements GameplayService {
         pc.setEquippedSwordId(1);
         pc.setEquippedMagicId(1);
         pc.setEquippedArmorId(1);
+        pc.setUnarmedDmg(2);
+        pc.setExperience(0);
+        pc.setCriticalStrikeChance(2);
+    }
+    
+    private Magic magic = new Magic();
+    
+    private void newMagic() {
+        magic.setMagicId(1);
+        magic.setName("Wanda the Wand");
+        magic.setCriticalStrikeModifier(10);
+        magic.setMinDmg(3);
+        magic.setMaxDmg(17);
+        magic.setCritDmg(30);
+        magic.setMaxDurability(150);
+        magic.setDurability(150);
+        magic.setElementalType("Earth");
     }
     
     @Override
     public void initialize() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        newCharacter();
+        newSword();
+        setupEnemy();
+        newMagic();
     }
 
     @Override
     public int attack() {
+        int attackDamage = pc.getUnarmedDmg() + sword.getMaxDmg() + magic.getMaxDmg();
+        Random ran = new Random();
+        int attackChance = ran.nextInt(100)+1;
+        if (attackChance )
+        return enemy.getHealth();
         
     }
 
@@ -83,6 +110,16 @@ public class GameplayServiceImpl implements GameplayService {
 
     @Override
     public Enemy generateEnemy() {
+        return enemy;
+    }
+
+    @Override
+    public PlayerCharacter returnPC() {
+        return pc;
+    }
+
+    @Override
+    public Enemy returnEnemy() {
         return enemy;
     }
     
