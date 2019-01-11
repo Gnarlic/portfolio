@@ -393,7 +393,7 @@
                         will be hosted here soon, and on github.
                     </li>
                     <li>
-                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Calculator web app.
+                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Calculator web app. Next feature planned is to display past calculations.
                     </li>
                     <li>
                         <a style="font-size:16pt;text-decoration:underline">DeltaV</a> - (Coming Soon) Basic thrust calculator for rockets that displays delta-v, burn time, and starting and ending thrust. Calculations can be saved.

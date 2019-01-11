@@ -6,10 +6,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Index Page</title>
+        <title>Calculator</title>
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">        
     </head>
+    <style>
+        @media all and (max-width: 480px) {
+            .sidediv { display: none;}
+        }
+    </style>
     <body style="background-color:burlywood">
         <div class="container-fluid">
             <div class="text-center">
@@ -21,11 +26,11 @@
             <div class="alert-danger text-center" style="margin-bottom:30px">
                 <h2>${error}</h2>
             </div>
-            <div class="row">
-                <div class="col-md-3" style="height:100vh;background-color:dodgerblue">
+            <div class="row" style="height:100vh;background-color:dodgerblue">
+                <div class="col-md-3 sidediv" >
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" style="background-color:burlywood;height:100%">
                     <div class="form-group">
                         <form action="${pageContext.request.contextPath}/calculate" method="get">
                             <div>
@@ -52,7 +57,7 @@
                                 <h2>Answer: ${returnAnswer}</h2>
                             </div>
                 </div>
-                <div class="col-md-3" style="height:100vh;background-color:dodgerblue">
+                <div class="col-md-3 sidediv">
                     
                 </div>
             </div>

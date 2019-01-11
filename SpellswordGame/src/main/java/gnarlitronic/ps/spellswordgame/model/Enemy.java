@@ -5,6 +5,7 @@
  */
 package gnarlitronic.ps.spellswordgame.model;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -15,7 +16,7 @@ public class Enemy {
     
     private int enemyId;
     private String enemyName;
-    private int damageRange;
+    private int[] damageRange;
     private int level;
     private int maxHealth;
     private int health;
@@ -41,11 +42,11 @@ public class Enemy {
         this.enemyName = enemyName;
     }
 
-    public int getDamageRange() {
+    public int[] getDamageRange() {
         return damageRange;
     }
 
-    public void setDamageRange(int damageRange) {
+    public void setDamageRange(int[] damageRange) {
         this.damageRange = damageRange;
     }
 
@@ -116,17 +117,17 @@ public class Enemy {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + this.enemyId;
-        hash = 71 * hash + Objects.hashCode(this.enemyName);
-        hash = 71 * hash + this.damageRange;
-        hash = 71 * hash + this.level;
-        hash = 71 * hash + this.maxHealth;
-        hash = 71 * hash + this.health;
-        hash = 71 * hash + Objects.hashCode(this.elementalResistance);
-        hash = 71 * hash + Objects.hashCode(this.elementalWeakness);
-        hash = 71 * hash + this.criticalStrikeChance;
-        hash = 71 * hash + this.lootChance;
-        hash = 71 * hash + this.points;
+        hash = 29 * hash + this.enemyId;
+        hash = 29 * hash + Objects.hashCode(this.enemyName);
+        hash = 29 * hash + Arrays.hashCode(this.damageRange);
+        hash = 29 * hash + this.level;
+        hash = 29 * hash + this.maxHealth;
+        hash = 29 * hash + this.health;
+        hash = 29 * hash + Objects.hashCode(this.elementalResistance);
+        hash = 29 * hash + Objects.hashCode(this.elementalWeakness);
+        hash = 29 * hash + this.criticalStrikeChance;
+        hash = 29 * hash + this.lootChance;
+        hash = 29 * hash + this.points;
         return hash;
     }
 
@@ -143,9 +144,6 @@ public class Enemy {
         }
         final Enemy other = (Enemy) obj;
         if (this.enemyId != other.enemyId) {
-            return false;
-        }
-        if (this.damageRange != other.damageRange) {
             return false;
         }
         if (this.level != other.level) {
@@ -175,7 +173,12 @@ public class Enemy {
         if (!Objects.equals(this.elementalWeakness, other.elementalWeakness)) {
             return false;
         }
+        if (!Arrays.equals(this.damageRange, other.damageRange)) {
+            return false;
+        }
         return true;
     }
+
+    
     
 }
