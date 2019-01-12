@@ -22,8 +22,19 @@
                 <a href="http://www.gnarlitronic.com/#projects">Return to Homepage</a>                
             </div>
             <div class="text-center">
+                <a href="${pageContext.request.contextPath}/play"><h1>Play</h1></a>
+            </div>
+            <div class="text-center">
                 <div>
-                    
+                    <h2>Player Health: ${playerHealth}</h2>
+                    <h2>Enemy Health: ${enemyHealth}</h2>
+                </div>
+                <div>
+                    <form action="${pageContext.request.contextPath}/play/attack" method="GET">
+                        <button type="submit">Attack
+                        
+                    </button>
+                    </form>
                 </div>
             </div>
         </div>
