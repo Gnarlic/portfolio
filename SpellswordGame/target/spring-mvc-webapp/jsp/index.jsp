@@ -16,29 +16,31 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     </head>
     <body style="background-color:dodgerblue">
-        
+
         <div class="container">
             <div class="text-center">
                 <a href="http://www.gnarlitronic.com/#projects">Return to Homepage</a>                
             </div>
             <div class="text-center">
-                <a href="${pageContext.request.contextPath}/play"><h1>Play</h1></a>
-            </div>
-            <div class="text-center">
                 <div>
                     <h2>Player Health: ${playerHealth}</h2>
                     <h2>Enemy Health: ${enemyHealth}</h2>
+                    <h1>${gameover}</h1>
                 </div>
                 <div>
                     <form action="${pageContext.request.contextPath}/play/attack" method="GET">
                         <button type="submit">Attack
-                        
-                    </button>
+
+                        </button>
+                    </form>
+                    <form action="${pageContext.request.contextPath}/">
+                        <button type="submit">Reset</button>
+
                     </form>
                 </div>
             </div>
         </div>
-        
+
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

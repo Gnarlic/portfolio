@@ -25,18 +25,24 @@ public class GameController {
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String playGame(HttpServletRequest request, Model model) {
         gService.initialize();
+        model.addAttribute("enemyHealth", gService.getEnemyHealth());
+        model.addAttribute("playerHealth", gService.getPlayerHealth());
         return "/index";
     }
     
     @RequestMapping(value="/play/attack", method=RequestMethod.GET)
     public String attack(HttpServletRequest request, Model model) {
+        if (gService.getEnemyHealth() <= 0) {
+            model.addAttribute("gameover", "You Win!");
+        } else {
         gService.attack();
         int enemyHealth = gService.getEnemyHealth();
         int health = gService.getPlayerHealth();
         model.addAttribute("playerHealth", health);
         model.addAttribute("enemyHealth", enemyHealth);
-        if (enemyHealth <= 0) {
-            model.addAttribute("gameover", "You Win!");
+            if (gService.getEnemyHealth() <=0) {
+                model.addAttribute("gameover", "You Win!");
+            }
         }
         return "/index";
     }
