@@ -31,7 +31,10 @@ public class GameController {
     @RequestMapping(value="/play/attack", method=RequestMethod.GET)
     public String attack(HttpServletRequest request, Model model) {
         gService.attack();
-        
+        int enemyHealth = gService.getEnemyHealth();
+        int health = gService.getPlayerHealth();
+        model.addAttribute("playerHealth", health);
+        model.addAttribute("enemyHealth", enemyHealth);
         return "/play";
     }
     

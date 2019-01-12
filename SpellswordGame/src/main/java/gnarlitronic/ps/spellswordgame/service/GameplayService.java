@@ -28,6 +28,10 @@ public interface GameplayService {
     
     public Enemy returnEnemy();
     
+    public int getPlayerHealth();
+    
+    public int getEnemyHealth();
+    
     
     
 }

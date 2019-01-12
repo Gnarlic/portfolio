@@ -96,7 +96,15 @@ public class GameplayServiceImpl implements GameplayService {
         int attackDamage = pc.getUnarmedDmg() + sword.getMaxDmg() + magic.getMaxDmg();
         Random ran = new Random();
         int attackChance = ran.nextInt(100)+1;
-        if (attackChance )
+        if (attackChance > 50) {
+            int actualAttackDamage = ran.nextInt(attackDamage) + 1;
+            enemy.setHealth(enemy.getHealth()-actualAttackDamage);
+        } else {
+            int[] enemyAttack = enemy.getDamageRange();
+            int actualEnemyAttack = 
+                    ran.nextInt((enemyAttack[1] - enemyAttack[0]) + 1) + enemyAttack[0];
+            pc.setHealth(pc.getHealth()-actualEnemyAttack);
+        }
         return enemy.getHealth();
         
     }
@@ -121,6 +129,16 @@ public class GameplayServiceImpl implements GameplayService {
     @Override
     public Enemy returnEnemy() {
         return enemy;
+    }
+
+    @Override
+    public int getPlayerHealth() {
+        return pc.getHealth();
+    }
+
+    @Override
+    public int getEnemyHealth() {
+        return enemy.getHealth();
     }
     
 }
