@@ -19,32 +19,48 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class GameController {
-    
+
     GameplayService gService = new GameplayServiceImpl();
-    
-    @RequestMapping(value="/", method=RequestMethod.GET)
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String playGame(HttpServletRequest request, Model model) {
         gService.initialize();
         model.addAttribute("enemyHealth", gService.getEnemyHealth());
         model.addAttribute("playerHealth", gService.getPlayerHealth());
+        model.addAttribute("weaponName", gService.getEquippedWeapon());
+        model.addAttribute("magicName", gService.getEquippedMagic());
         return "/index";
     }
-    
-    @RequestMapping(value="/play/attack", method=RequestMethod.GET)
+
+    @RequestMapping(value = "/play/attack", method = RequestMethod.GET)
     public String attack(HttpServletRequest request, Model model) {
         if (gService.getEnemyHealth() <= 0) {
-            model.addAttribute("gameover", "You Win!");
+            gService.initialize();
+            model.addAttribute("playerHealth", gService.getPlayerHealth());
+            model.addAttribute("enemyHealth", gService.getEnemyHealth());
+        } else if (gService.getPlayerHealth() <= 0) {
+            gService.initialize();
+            model.addAttribute("playerHealth", gService.getPlayerHealth());
+            model.addAttribute("enemyHealth", gService.getEnemyHealth());
         } else {
-        gService.attack();
-        int enemyHealth = gService.getEnemyHealth();
-        int health = gService.getPlayerHealth();
-        model.addAttribute("playerHealth", health);
-        model.addAttribute("enemyHealth", enemyHealth);
-            if (gService.getEnemyHealth() <=0) {
+            gService.attack();
+            int enemyHealth = gService.getEnemyHealth();
+            int health = gService.getPlayerHealth();
+            model.addAttribute("playerHealth", health);
+            model.addAttribute("enemyHealth", enemyHealth);
+            if (gService.getEnemyHealth() <= 0) {
+                model.addAttribute("enemyHealth", "0");
                 model.addAttribute("gameover", "You Win!");
+                gService.initialize();
+            } else if (gService.getPlayerHealth() <=0) {
+                model.addAttribute("gameover", "You Lose!");
+                model.addAttribute("playerHealth", "0");
+                gService.initialize();
             }
         }
+        model.addAttribute("weaponName", gService.getEquippedWeapon());
+        model.addAttribute("magicName", gService.getEquippedMagic());
         return "/index";
     }
-    
+
 }

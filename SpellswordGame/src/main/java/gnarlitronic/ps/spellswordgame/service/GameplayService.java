@@ -32,6 +32,10 @@ public interface GameplayService {
     
     public int getEnemyHealth();
     
+    public String getEquippedWeapon();
+    
+    public String getEquippedMagic();
+    
     
     
 }

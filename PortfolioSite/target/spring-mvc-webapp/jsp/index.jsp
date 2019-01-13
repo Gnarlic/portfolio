@@ -389,7 +389,7 @@
                     Personal Projects - <br>
                 <ul class="text-white">
                     <li>
-                        <a style="font-size:16pt;text-decoration:underline">Spellsword</a> - (First iteration coming soon) Rogue-like fantasy RPG. Combining magic and weapons, fight enemies to gain gold and better equipment. The different combinations of magic and weapons drastically change combat.
+                        <a href="http://www.gnarlitronic.com/spellsword" style="font-size:16pt;text-decoration:underline">Spellsword</a> - (Just allows simple combat at the moment - first milestone will include random enemy generation for encounters, and random weapon stats. Also basic database implementation and the ability to save your play record.) Rogue-like fantasy RPG. Combining magic and weapons, fight enemies to gain gold and better equipment. The different combinations of magic and weapons drastically change combat.
                         will be hosted here soon, and on github.
                     </li>
                     <li>

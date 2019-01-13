@@ -25,6 +25,8 @@
                 <div>
                     <h2>Player Health: ${playerHealth}</h2>
                     <h2>Enemy Health: ${enemyHealth}</h2>
+                    <h2>Weapon: ${weaponName}</h2>
+                    <h2>Magic Item: ${magicName}</h2>
                     <h1>${gameover}</h1>
                 </div>
                 <div>

@@ -19,24 +19,24 @@ import java.util.Random;
 public class GameplayServiceImpl implements GameplayService {
 
     private Enemy enemy = new Enemy();
-    
+
     private void setupEnemy() {
         enemy.setEnemyId(1);
         enemy.setEnemyName("Troll");
-        int[] dmgRange = {1,10};
+        int[] dmgRange = {1, 10};
         enemy.setDamageRange(dmgRange);
         enemy.setLevel(1);
-        enemy.setMaxHealth(25);
-        enemy.setHealth(25);
+        enemy.setMaxHealth(200);
+        enemy.setHealth(200);
         enemy.setElementalResistance("Water");
         enemy.setElementalWeakness("Fire");
         enemy.setCriticalStrikeChance(10);
         enemy.setLootChance(200);
         enemy.setPoints(25);
     }
-    
+
     private Sword sword = new Sword();
-    
+
     private void newSword() {
         sword.setSwordId(1);
         sword.setName("Excalibrrr");
@@ -48,9 +48,9 @@ public class GameplayServiceImpl implements GameplayService {
         sword.setDurability(150);
         sword.setElementalType("Ice");
     }
-    
+
     private PlayerCharacter pc = new PlayerCharacter();
-    
+
     private void newCharacter() {
         pc.setPlayerId(1);
         pc.setName("Sir Arnold");
@@ -68,9 +68,9 @@ public class GameplayServiceImpl implements GameplayService {
         pc.setExperience(0);
         pc.setCriticalStrikeChance(2);
     }
-    
+
     private Magic magic = new Magic();
-    
+
     private void newMagic() {
         magic.setMagicId(1);
         magic.setName("Wanda the Wand");
@@ -82,7 +82,7 @@ public class GameplayServiceImpl implements GameplayService {
         magic.setDurability(150);
         magic.setElementalType("Earth");
     }
-    
+
     @Override
     public void initialize() {
         newCharacter();
@@ -94,19 +94,22 @@ public class GameplayServiceImpl implements GameplayService {
     @Override
     public int attack() {
         int attackDamage = pc.getUnarmedDmg() + sword.getMaxDmg() + magic.getMaxDmg();
+        int criticalStrikeRequirement = 100 - (pc.getCriticalStrikeChance() + sword.getCriticalStrikeModifier() + magic.getCriticalStrikeModifier());
         Random ran = new Random();
-        int attackChance = ran.nextInt(100)+1;
-        if (attackChance > 50) {
+        int attackChance = ran.nextInt(100) + 1;
+        if (attackChance >= criticalStrikeRequirement) {
+            enemy.setHealth(enemy.getHealth() - (sword.getCritDmg() + magic.getCritDmg()));
+        } else if (attackChance > 50) {
             int actualAttackDamage = ran.nextInt(attackDamage) + 1;
-            enemy.setHealth(enemy.getHealth()-actualAttackDamage);
+            enemy.setHealth(enemy.getHealth() - actualAttackDamage);
         } else {
             int[] enemyAttack = enemy.getDamageRange();
-            int actualEnemyAttack = 
-                    ran.nextInt((enemyAttack[1] - enemyAttack[0]) + 1) + enemyAttack[0];
-            pc.setHealth(pc.getHealth()-actualEnemyAttack);
+            int actualEnemyAttack
+                    = ran.nextInt((enemyAttack[1] - enemyAttack[0]) + 1) + enemyAttack[0];
+            pc.setHealth(pc.getHealth() - actualEnemyAttack);
         }
         return enemy.getHealth();
-        
+
     }
 
     @Override
@@ -140,5 +143,15 @@ public class GameplayServiceImpl implements GameplayService {
     public int getEnemyHealth() {
         return enemy.getHealth();
     }
-    
+
+    @Override
+    public String getEquippedWeapon() {
+        return sword.getName();
+    }
+
+    @Override
+    public String getEquippedMagic() {
+        return magic.getName();
+    }
+
 }
