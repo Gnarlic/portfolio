@@ -26,8 +26,8 @@ public class GameplayServiceImpl implements GameplayService {
         int[] dmgRange = {1, 10};
         enemy.setDamageRange(dmgRange);
         enemy.setLevel(1);
-        enemy.setMaxHealth(200);
-        enemy.setHealth(200);
+        enemy.setMaxHealth(350);
+        enemy.setHealth(350);
         enemy.setElementalResistance("Water");
         enemy.setElementalWeakness("Fire");
         enemy.setCriticalStrikeChance(10);
@@ -99,7 +99,7 @@ public class GameplayServiceImpl implements GameplayService {
         int attackChance = ran.nextInt(100) + 1;
         if (attackChance >= criticalStrikeRequirement) {
             enemy.setHealth(enemy.getHealth() - (sword.getCritDmg() + magic.getCritDmg()));
-        } else if (attackChance > 50) {
+        } else if (attackChance > 65) {
             int actualAttackDamage = ran.nextInt(attackDamage) + 1;
             enemy.setHealth(enemy.getHealth() - actualAttackDamage);
         } else {

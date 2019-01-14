@@ -19,26 +19,41 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *
  * @author Elnic
  */
-
 @Controller
 public class GameController {
 
     GameplayService gService = new GameplayServiceImpl();
 
     public class CombatInfo {
-        
-        int cInfo = 1;
 
-        public int getcInfo() {
-            return cInfo;
+        int enemyHealth = 0;
+        int playerHealth = 0;
+        String gameStatus = "";
+
+        public int getEnemyHealth() {
+            return enemyHealth;
         }
 
-        public void setcInfo(int cInfo) {
-            this.cInfo = cInfo;
+        public void setEnemyHealth(int enemyHealth) {
+            this.enemyHealth = enemyHealth;
         }
-        
-        
-        
+
+        public int getPlayerHealth() {
+            return playerHealth;
+        }
+
+        public void setPlayerHealth(int playerHealth) {
+            this.playerHealth = playerHealth;
+        }
+
+        public String getGameStatus() {
+            return gameStatus;
+        }
+
+        public void setGameStatus(String gameStatus) {
+            this.gameStatus = gameStatus;
+        }
+
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -81,11 +96,38 @@ public class GameController {
         model.addAttribute("magicName", gService.getEquippedMagic());
         return "/index";
     }
+
     @CrossOrigin
-    @RequestMapping(value="/attack", method=RequestMethod.GET)
+    @RequestMapping(value = "/attack", method = RequestMethod.GET)
     @ResponseBody
     public CombatInfo nextRound() {
         CombatInfo info = new CombatInfo();
+        if (gService.getPlayerHealth() <= 0) {
+            gService.initialize();
+            info.setPlayerHealth(gService.getPlayerHealth());
+            info.setEnemyHealth(gService.getEnemyHealth());
+            info.setGameStatus("You Lose!");
+        } else if (gService.getEnemyHealth() <= 0) {
+            gService.initialize();
+            info.setEnemyHealth(gService.getEnemyHealth());
+            info.setPlayerHealth(gService.getPlayerHealth());
+            info.setGameStatus("You Win!");
+        } else {
+            gService.attack();
+            if (gService.getEnemyHealth() <= 0) {
+                info.setEnemyHealth(0);
+                info.setPlayerHealth(gService.getPlayerHealth());
+                info.setGameStatus("You Win!");
+            } else if (gService.getPlayerHealth() <= 0) {
+                info.setPlayerHealth(0);
+                info.setEnemyHealth(gService.getEnemyHealth());
+                info.setGameStatus("You Lose!");
+            } else {
+                info.setEnemyHealth(gService.getEnemyHealth());
+                info.setPlayerHealth(gService.getPlayerHealth());
+            }
+        }
+
         return info;
     }
 

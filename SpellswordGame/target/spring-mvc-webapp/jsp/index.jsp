@@ -19,29 +19,29 @@
 
         <div class="container">
             <div class="text-center">
-                <a href="http://www.gnarlitronic.com/#projects">Return to Homepage</a>                
+                <a href="http://www.gnarlitronic.com/#projects" style="color:white">Return to Homepage</a>                
             </div>
             <div class="text-center">
                 <div>
-                    <h2 id="playerHealth">Player Health: ${playerHealth}</h2>
-                    <h2 id="enemyHealth">Enemy Health: ${enemyHealth}</h2>
-                    <h2 id="weapon">Weapon: ${weaponName}</h2>
-                    <h2 id="magic">Magic Item: ${magicName}</h2>
+                    <h2 id="playerHealth" style="color:greenyellow">Player Health: ${playerHealth}</h2>
+                    <h2 id="enemyHealth" style="color:#B20000">Enemy Health: ${enemyHealth}</h2>
+                    <h2 id="weapon" style="color:darkslategray">Weapon: ${weaponName}</h2>
+                    <h2 id="magic" style="color:purple">Magic Item: ${magicName}</h2>
                     <h1 id="errorMessage">${gameover}</h1>
                 </div>
                 <div id="test">
                     <p>
-                        jquery attack button
-                        <button id="attack">attack</button>
-                        
+                        ajax json (javascript) attack button - refreshes information within element without reloading page.<br/>
+                        <a id="attack"><button>attack</button></a>
                     </p>
                 </div>
                 <div>
                     <form action="${pageContext.request.contextPath}/play/attack" method="GET">
-                        <button type="submit">Attack
-
-                        </button>
+                        html jsp request button <br/>
+                        <button type="submit">Attack 
+                        </button><br/> - this refreshes entire page everytime
                     </form>
+                    <hr/>
                     <form action="${pageContext.request.contextPath}/">
                         <button type="submit">Reset</button>
 
@@ -53,7 +53,11 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/gameplay.js"
+        <script>
+            var requestContextPath = '${pageContext.request.contextPath}';
+        </script>
+        <script src="${pageContext.request.contextPath}/js/gameplay.js"</script>
+
         <script>
             $(document).ready(function () {
                 // Add smooth scrolling to all links in navbar + footer link

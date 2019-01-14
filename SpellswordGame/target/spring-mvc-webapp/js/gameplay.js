@@ -4,28 +4,30 @@
  * and open the template in the editor.
  */
 $(document).ready(function(){
-    $('#attack').on('click', attack());
+    $('#attack').on('click', attack);
     
 });
 
 function attack() {
     
     var myContextPath = $(this).attr('myContextPath');
-    var actualPath = myContextPath + ("/attack");
-    console.log(myContextPath);
-    console.log(actualPath);
-    console.log(window.location.pathname);
-    console.log(window.location.hostname);
+    var actualPath = requestContextPath + ("/attack");
     
     $.ajax({
         type: 'GET',
-        url: "http://localhost:8080/SpellswordGame/attack",
+        url: actualPath,
         dataType: 'json',
         success: function(combatInfo) {
-            $('#test').text(combatInfo.cInfo);
+            $('#playerHealth').text("Player Health: " + combatInfo.playerHealth);
+            $('#enemyHealth').text("Enemy Health: " + combatInfo.enemyHealth);
+            $('#errorMessage').text(combatInfo.gameStatus);
+            console.log("success");
+            console.log(combatInfo.playerHealth);
+            console.log(combatInfo.enemyHealth);
         },
         error: function(){
           $('#errorMessages').val('Error calling web service. Please try again later.');  
         }
     });
 }
+
