@@ -10,17 +10,36 @@ import gnarlitronic.ps.spellswordgame.service.GameplayServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
  * @author Elnic
  */
+
 @Controller
 public class GameController {
 
     GameplayService gService = new GameplayServiceImpl();
+
+    public class CombatInfo {
+        
+        int cInfo = 1;
+
+        public int getcInfo() {
+            return cInfo;
+        }
+
+        public void setcInfo(int cInfo) {
+            this.cInfo = cInfo;
+        }
+        
+        
+        
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String playGame(HttpServletRequest request, Model model) {
@@ -52,7 +71,7 @@ public class GameController {
                 model.addAttribute("enemyHealth", "0");
                 model.addAttribute("gameover", "You Win!");
                 gService.initialize();
-            } else if (gService.getPlayerHealth() <=0) {
+            } else if (gService.getPlayerHealth() <= 0) {
                 model.addAttribute("gameover", "You Lose!");
                 model.addAttribute("playerHealth", "0");
                 gService.initialize();
@@ -61,6 +80,13 @@ public class GameController {
         model.addAttribute("weaponName", gService.getEquippedWeapon());
         model.addAttribute("magicName", gService.getEquippedMagic());
         return "/index";
+    }
+    @CrossOrigin
+    @RequestMapping(value="/attack", method=RequestMethod.GET)
+    @ResponseBody
+    public CombatInfo nextRound() {
+        CombatInfo info = new CombatInfo();
+        return info;
     }
 
 }

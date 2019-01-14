@@ -23,11 +23,18 @@
             </div>
             <div class="text-center">
                 <div>
-                    <h2>Player Health: ${playerHealth}</h2>
-                    <h2>Enemy Health: ${enemyHealth}</h2>
-                    <h2>Weapon: ${weaponName}</h2>
-                    <h2>Magic Item: ${magicName}</h2>
-                    <h1>${gameover}</h1>
+                    <h2 id="playerHealth">Player Health: ${playerHealth}</h2>
+                    <h2 id="enemyHealth">Enemy Health: ${enemyHealth}</h2>
+                    <h2 id="weapon">Weapon: ${weaponName}</h2>
+                    <h2 id="magic">Magic Item: ${magicName}</h2>
+                    <h1 id="errorMessage">${gameover}</h1>
+                </div>
+                <div id="test">
+                    <p>
+                        jquery attack button
+                        <button id="attack">attack</button>
+                        
+                    </p>
                 </div>
                 <div>
                     <form action="${pageContext.request.contextPath}/play/attack" method="GET">
@@ -46,6 +53,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/gameplay.js"
         <script>
             $(document).ready(function () {
                 // Add smooth scrolling to all links in navbar + footer link
