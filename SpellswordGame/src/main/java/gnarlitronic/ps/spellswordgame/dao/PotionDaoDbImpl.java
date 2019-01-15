@@ -10,5 +10,10 @@ package gnarlitronic.ps.spellswordgame.dao;
  * @author Elnic
  */
 public class PotionDaoDbImpl implements PotionDao {
+
+    @Override
+    public void test() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

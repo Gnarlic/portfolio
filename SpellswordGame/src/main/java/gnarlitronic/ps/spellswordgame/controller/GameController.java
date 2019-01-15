@@ -5,8 +5,10 @@
  */
 package gnarlitronic.ps.spellswordgame.controller;
 
+import gnarlitronic.ps.spellswordgame.model.PlayerCharacter;
 import gnarlitronic.ps.spellswordgame.service.GameplayService;
 import gnarlitronic.ps.spellswordgame.service.GameplayServiceImpl;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class GameController {
 
-    GameplayService gService = new GameplayServiceImpl();
+    @Inject
+    GameplayService gService;
 
     public class CombatInfo {
 
@@ -52,6 +55,16 @@ public class GameController {
 
         public void setGameStatus(String gameStatus) {
             this.gameStatus = gameStatus;
+        }
+        
+        private PlayerCharacter pc;
+
+        public PlayerCharacter getPc() {
+            return pc;
+        }
+
+        public void setPc(PlayerCharacter pc) {
+            this.pc = pc;
         }
 
     }

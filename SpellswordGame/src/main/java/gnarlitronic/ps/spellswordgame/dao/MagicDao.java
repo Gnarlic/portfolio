@@ -5,10 +5,16 @@
  */
 package gnarlitronic.ps.spellswordgame.dao;
 
+import gnarlitronic.ps.spellswordgame.model.Magic;
+
 /**
  *
  * @author Elnic
  */
 public interface MagicDao {
+ 
+    public Magic getMagic();
+    
+    public void setMagic(Magic magic);
     
 }

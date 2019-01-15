@@ -11,4 +11,6 @@ package gnarlitronic.ps.spellswordgame.dao;
  */
 public interface PotionDao {
     
+    public void test();
+    
 }

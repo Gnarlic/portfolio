@@ -5,10 +5,22 @@
  */
 package gnarlitronic.ps.spellswordgame.dao;
 
+import gnarlitronic.ps.spellswordgame.model.Armor;
+
 /**
  *
  * @author Elnic
  */
 public class ArmorDaoDbImpl implements ArmorDao {
+
+    @Override
+    public Armor getArmor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setArmor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

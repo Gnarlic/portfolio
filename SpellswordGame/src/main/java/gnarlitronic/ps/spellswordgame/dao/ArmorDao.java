@@ -5,10 +5,16 @@
  */
 package gnarlitronic.ps.spellswordgame.dao;
 
+import gnarlitronic.ps.spellswordgame.model.Armor;
+
 /**
  *
  * @author Elnic
  */
 public interface ArmorDao {
+    
+    public Armor getArmor();
+    
+    public void setArmor();
     
 }

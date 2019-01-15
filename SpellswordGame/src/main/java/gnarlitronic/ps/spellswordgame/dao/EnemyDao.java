@@ -5,10 +5,16 @@
  */
 package gnarlitronic.ps.spellswordgame.dao;
 
+import gnarlitronic.ps.spellswordgame.model.Enemy;
+
 /**
  *
  * @author Elnic
  */
 public interface EnemyDao {
+    
+    public Enemy getEnemy();
+    
+    public void setEnemy(Enemy enemy);
     
 }

@@ -251,7 +251,7 @@
                 <div class="col-md-3"><div></div><img src="${pageContext.request.contextPath}/images/1202182203_HDR_3.jpg" style="width:100%;border:solid black 2px"></div>
                 <div class="col-md-6"><div></div>
                     <p class="text-center" style="font-size:20pt">
-                        I'm a full stack web developer ready to tackle any project. I like to learn new things regularly. A skillset is never complete. Here you can check out my latest work.
+                        I'm a full stack web developer ready to tackle any project, and am skilled in utilizing RESTful design, Java, Spring/Spring Boot, and SQL to build efficient solutions. I am constantly on the hunt to expand and learn new skills. Here you can check out my latest work.
                         I'm currently developing Spellsword, a browser-based rogue-like RPG as a personal project.
                     </p>
                 </div>

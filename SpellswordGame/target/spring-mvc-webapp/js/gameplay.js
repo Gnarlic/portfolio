@@ -16,6 +16,7 @@ function attack() {
     $.ajax({
         type: 'GET',
         url: actualPath,
+        async: false,
         dataType: 'json',
         success: function(combatInfo) {
             $('#playerHealth').text("Player Health: " + combatInfo.playerHealth);

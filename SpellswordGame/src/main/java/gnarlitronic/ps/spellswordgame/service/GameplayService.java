@@ -7,7 +7,7 @@ package gnarlitronic.ps.spellswordgame.service;
 
 import gnarlitronic.ps.spellswordgame.model.Enemy;
 import gnarlitronic.ps.spellswordgame.model.PlayerCharacter;
-import gnarlitronic.ps.spellswordgame.model.Sword;
+import gnarlitronic.ps.spellswordgame.model.Weapon;
 import java.util.HashMap;
 
 /**
@@ -20,7 +20,7 @@ public interface GameplayService {
     
     public int attack();
     
-    public HashMap<Integer, Sword> itemDrop();
+    public HashMap<Integer, Weapon> itemDrop();
     
     public Enemy generateEnemy();
     

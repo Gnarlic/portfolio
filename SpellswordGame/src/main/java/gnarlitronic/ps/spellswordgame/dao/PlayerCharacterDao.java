@@ -5,10 +5,16 @@
  */
 package gnarlitronic.ps.spellswordgame.dao;
 
+import gnarlitronic.ps.spellswordgame.model.PlayerCharacter;
+
 /**
  *
  * @author Elnic
  */
 public interface PlayerCharacterDao {
+    
+    public PlayerCharacter getPc();
+    
+    public void setPc(PlayerCharacter pc);
     
 }
