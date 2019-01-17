@@ -16,6 +16,7 @@ import gnarlitronic.ps.spellswordgame.model.Magic;
 import gnarlitronic.ps.spellswordgame.model.PlayerCharacter;
 import gnarlitronic.ps.spellswordgame.model.Weapon;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 import javax.inject.Inject;
 
@@ -66,7 +67,7 @@ public class GameplayServiceImpl implements GameplayService {
         if (attackChance >= criticalStrikeRequirement) {
             enemy.setHealth(enemy.getHealth() - (sword.getCritDmg() + magic.getCritDmg()));
             eDao.setEnemy(enemy);
-        } else if (attackChance > 65) {
+        } else if (attackChance > 50) {
             int actualAttackDamage = ran.nextInt(attackDamage) + 1;
             enemy.setHealth(enemy.getHealth() - actualAttackDamage);
             eDao.setEnemy(enemy);
@@ -121,10 +122,35 @@ public class GameplayServiceImpl implements GameplayService {
         return sword.getName();
     }
 
+    //returns equipped magic item
     @Override
     public String getEquippedMagic() {
         Magic magic = mDao.getMagic();
         return magic.getName();
     }
 
+    //temporary method for restarting game
+    @Override
+    public void reset() {
+        mDao.reset();
+        wDao.reset();
+        eDao.reset();
+        pDao.reset();
+    }
+
+    //returns all available weapons
+    @Override
+    public List<Weapon> loadWeapons() {
+        
+        return wDao.allWeapons();
+        
+    }
+
+    //Returns user selected weapon
+    @Override
+    public Weapon getWeapon(String id) {
+        return wDao.getWeapon(id);
+    }
+    
+    
 }

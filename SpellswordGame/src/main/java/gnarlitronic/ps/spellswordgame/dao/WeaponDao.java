@@ -6,6 +6,7 @@
 package gnarlitronic.ps.spellswordgame.dao;
 
 import gnarlitronic.ps.spellswordgame.model.Weapon;
+import java.util.List;
 
 /**
  *
@@ -16,5 +17,11 @@ public interface WeaponDao {
     public Weapon getWeapon();
     
     public void setWeapon(Weapon weapon);
+    
+    public void reset();
+    
+    public List<Weapon> allWeapons();
+
+    public Weapon getWeapon(String id);
     
 }

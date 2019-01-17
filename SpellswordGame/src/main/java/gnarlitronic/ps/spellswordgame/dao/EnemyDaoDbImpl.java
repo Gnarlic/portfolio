@@ -41,4 +41,22 @@ public class EnemyDaoDbImpl implements EnemyDao {
         this.enemy = enemy;
     }
 
+    @Override
+    public void reset() {
+        
+        enemy.setEnemyId(1);
+        enemy.setEnemyName("Troll");
+        int[] dmgRange = {5, 20};
+        enemy.setDamageRange(dmgRange);
+        enemy.setLevel(1);
+        enemy.setMaxHealth(350);
+        enemy.setHealth(350);
+        enemy.setElementalResistance("Water");
+        enemy.setElementalWeakness("Fire");
+        enemy.setCriticalStrikeChance(10);
+        enemy.setLootChance(200);
+        enemy.setPoints(25);
+        
+    }
+
 }

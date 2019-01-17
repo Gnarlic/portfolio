@@ -17,4 +17,6 @@ public interface MagicDao {
     
     public void setMagic(Magic magic);
     
+    public void reset();
+    
 }

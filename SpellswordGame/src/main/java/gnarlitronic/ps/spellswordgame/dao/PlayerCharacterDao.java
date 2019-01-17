@@ -17,4 +17,6 @@ public interface PlayerCharacterDao {
     
     public void setPc(PlayerCharacter pc);
     
+    public void reset();
+    
 }

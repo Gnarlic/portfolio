@@ -26,21 +26,19 @@
                     <h2 id="playerHealth" style="color:greenyellow">Player Health: ${playerHealth}</h2>
                     <h2 id="enemyHealth" style="color:#B20000">Enemy Health: ${enemyHealth}</h2>
                     <h2 id="weapon" style="color:darkslategray">Weapon: ${weaponName}</h2>
+                    <a id="changeWeapon"><button>Change Weapon</button></a>
+                    <div id="weaponList">
+                        
+                    </div>
                     <h2 id="magic" style="color:purple">Magic Item: ${magicName}</h2>
                     <h1 id="errorMessage">${gameover}</h1>
                 </div>
                 <div id="test">
                     <p>
-                        ajax json (javascript) attack button - refreshes information within element without reloading page.<br/>
-                        <a id="attack"><button>attack</button></a>
+                        <a id="attack"><button>Attack</button></a>
                     </p>
                 </div>
                 <div>
-                    <form action="${pageContext.request.contextPath}/play/attack" method="GET">
-                        html jsp request button <br/>
-                        <button type="submit">Attack 
-                        </button><br/> - this refreshes entire page everytime
-                    </form>
                     <hr/>
                     <form action="${pageContext.request.contextPath}/">
                         <button type="submit">Reset</button>

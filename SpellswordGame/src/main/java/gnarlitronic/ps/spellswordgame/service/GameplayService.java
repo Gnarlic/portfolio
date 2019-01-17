@@ -9,6 +9,7 @@ import gnarlitronic.ps.spellswordgame.model.Enemy;
 import gnarlitronic.ps.spellswordgame.model.PlayerCharacter;
 import gnarlitronic.ps.spellswordgame.model.Weapon;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -35,6 +36,12 @@ public interface GameplayService {
     public String getEquippedWeapon();
     
     public String getEquippedMagic();
+    
+    public void reset();
+    
+    public List<Weapon> loadWeapons();
+
+    public Weapon getWeapon(String id);
     
     
     

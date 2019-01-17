@@ -3,22 +3,73 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$(document).ready(function(){
+$(document).ready(function () {
+
+
     $('#attack').on('click', attack);
-    
+    $('#changeWeapon').on('click', listWeapons);
+    $('.selectWeapon').on('click', selectWeapon);
+
+
 });
 
-function attack() {
+function selectWeapon(clickedId) {
     
+    var actualPath = requestContextPath + ("/selectWeapon/" + clickedId);
+    
+    $.ajax({
+        type: 'GET',
+        url: actualPath,
+        dataType: 'json',
+        success: function (weapon) {
+            $('#weapon').empty();
+            $('#weapon').append('Weapon: '+weapon.name);
+            $('#weaponList').empty();
+            console.log(weapon.name);
+            console.log(clickedId);
+        },
+        error: function () {
+            $('#errorMessages').val('Error calling web service. Please try again later.');
+        }
+    });
+    
+}
+
+function listWeapons() {
+
     var myContextPath = $(this).attr('myContextPath');
-    var actualPath = requestContextPath + ("/attack");
-    
+    var actualPath = requestContextPath + ("/listWeapons");
+
     $.ajax({
         type: 'GET',
         url: actualPath,
         async: false,
         dataType: 'json',
-        success: function(combatInfo) {
+        success: function (weapons) {
+            $('#weaponList').empty();
+            weapons.forEach(function (weapon) {
+                $('#weaponList').append('<div><a id="' + weapon.weaponId + '" class="selectWeapon" onClick="selectWeapon(this.id)"><button>' + weapon.name + '</button></div>')
+            });
+            console.log(weapons[0].name);
+        },
+        error: function () {
+            $('#errorMessages').val('Error calling web service. Please try again later.');
+        }
+    });
+
+}
+
+function attack() {
+
+    var myContextPath = $(this).attr('myContextPath');
+    var actualPath = requestContextPath + ("/attack");
+
+    $.ajax({
+        type: 'GET',
+        url: actualPath,
+        async: false,
+        dataType: 'json',
+        success: function (combatInfo) {
             $('#playerHealth').text("Player Health: " + combatInfo.playerHealth);
             $('#enemyHealth').text("Enemy Health: " + combatInfo.enemyHealth);
             $('#errorMessage').text(combatInfo.gameStatus);
@@ -26,8 +77,8 @@ function attack() {
             console.log(combatInfo.playerHealth);
             console.log(combatInfo.enemyHealth);
         },
-        error: function(){
-          $('#errorMessages').val('Error calling web service. Please try again later.');  
+        error: function () {
+            $('#errorMessages').val('Error calling web service. Please try again later.');
         }
     });
 }
