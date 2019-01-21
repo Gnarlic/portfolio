@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.inject.Inject;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
  * @author Elnic
  */
 public class WeaponDaoDbImpl implements WeaponDao {
+    
     
     private Weapon sword = new Weapon();
     private Weapon axe = new Weapon();

@@ -6,6 +6,12 @@
 package gnarlitronic.ps.spellswordgame.dao;
 
 import gnarlitronic.ps.spellswordgame.model.Enemy;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Random;
+import javax.inject.Inject;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 /**
  *
@@ -13,27 +19,18 @@ import gnarlitronic.ps.spellswordgame.model.Enemy;
  */
 public class EnemyDaoDbImpl implements EnemyDao {
 
-    Enemy enemy = new Enemy();
+    private JdbcTemplate jdbc;
 
-    public EnemyDaoDbImpl() {
-
-        enemy.setEnemyId(1);
-        enemy.setEnemyName("Troll");
-        int[] dmgRange = {1, 10};
-        enemy.setDamageRange(dmgRange);
-        enemy.setLevel(1);
-        enemy.setMaxHealth(350);
-        enemy.setHealth(350);
-        enemy.setElementalResistance("Water");
-        enemy.setElementalWeakness("Fire");
-        enemy.setCriticalStrikeChance(10);
-        enemy.setLootChance(200);
-        enemy.setPoints(25);
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbc = jdbcTemplate;
     }
+
+    Enemy enemy = new Enemy();
 
     @Override
     public Enemy getEnemy() {
-        return this.enemy;
+        
+        return enemy;
     }
 
     @Override
@@ -43,20 +40,30 @@ public class EnemyDaoDbImpl implements EnemyDao {
 
     @Override
     public void reset() {
-        
-        enemy.setEnemyId(1);
-        enemy.setEnemyName("Troll");
-        int[] dmgRange = {5, 20};
-        enemy.setDamageRange(dmgRange);
-        enemy.setLevel(1);
-        enemy.setMaxHealth(350);
-        enemy.setHealth(350);
-        enemy.setElementalResistance("Water");
-        enemy.setElementalWeakness("Fire");
-        enemy.setCriticalStrikeChance(10);
-        enemy.setLootChance(200);
-        enemy.setPoints(25);
-        
+        this.enemy = jdbc.queryForObject("select * from EnemyGeneration where Id = 1", new EnemyMapper());
+
+    }
+
+    private static final class EnemyMapper implements RowMapper<Enemy> {
+
+        @Override
+        public Enemy mapRow(ResultSet rs, int i) throws SQLException {
+            Enemy enemy = new Enemy();
+            enemy.setEnemyId(rs.getInt("Id"));
+            enemy.setLevel(rs.getInt("Lvl"));
+            Random ran = new Random();
+            int minDmg = ran.nextInt(enemy.getLevel() * 3) + enemy.getLevel();
+            int maxDmg = ran.nextInt(enemy.getLevel() * 7) + minDmg;
+            enemy.setDamageRange(new int[]{minDmg, maxDmg});
+            int health = ran.nextInt(rs.getInt("Health"));
+            enemy.setMaxHealth(health);
+            enemy.setHealth(health);
+            enemy.setCriticalStrikeChance(rs.getInt("CriticalStrikeModifier"));
+            enemy.setCriticalDmg(minDmg + maxDmg);
+            enemy.setEnemyName("Troll");
+            return enemy;
+        }
+
     }
 
 }

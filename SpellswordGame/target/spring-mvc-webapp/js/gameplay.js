@@ -23,9 +23,10 @@ function selectWeapon(clickedId) {
         dataType: 'json',
         success: function (weapon) {
             $('#weapon').empty();
-            $('#weapon').append('Weapon: '+weapon.name);
+            $('#weapon').append('Weapon: '+weapon.name + ' Attack: ' + weapon.minDmg +'-'+weapon.maxDmg + ' (Crit: ' + weapon.critDmg + ')');
             $('#weaponList').empty();
             console.log(weapon.name);
+            console.log(weapon.minDmg);
             console.log(clickedId);
         },
         error: function () {
@@ -49,8 +50,9 @@ function listWeapons() {
             $('#weaponList').empty();
             weapons.forEach(function (weapon) {
                 $('#weaponList').append('<div><a id="' + weapon.weaponId + '" class="selectWeapon" onClick="selectWeapon(this.id)"><button>' + weapon.name + '</button></div>')
+                console.log(weapon.critDmg);
             });
-            console.log(weapons[0].name);
+
         },
         error: function () {
             $('#errorMessages').val('Error calling web service. Please try again later.');

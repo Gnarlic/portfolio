@@ -67,7 +67,7 @@ public class GameplayServiceImpl implements GameplayService {
         if (attackChance >= criticalStrikeRequirement) {
             enemy.setHealth(enemy.getHealth() - (sword.getCritDmg() + magic.getCritDmg()));
             eDao.setEnemy(enemy);
-        } else if (attackChance > 50) {
+        } else if (attackChance > 65) {
             int actualAttackDamage = ran.nextInt(attackDamage) + 1;
             enemy.setHealth(enemy.getHealth() - actualAttackDamage);
             eDao.setEnemy(enemy);
@@ -150,6 +150,13 @@ public class GameplayServiceImpl implements GameplayService {
     @Override
     public Weapon getWeapon(String id) {
         return wDao.getWeapon(id);
+    }
+
+    @Override
+    public Object getEnemy() {
+        
+        return eDao.getEnemy();
+        
     }
     
     

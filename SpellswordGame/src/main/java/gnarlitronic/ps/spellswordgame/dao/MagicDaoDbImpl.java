@@ -6,12 +6,15 @@
 package gnarlitronic.ps.spellswordgame.dao;
 
 import gnarlitronic.ps.spellswordgame.model.Magic;
+import javax.inject.Inject;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
  * @author Elnic
  */
 public class MagicDaoDbImpl implements MagicDao{
+    
     
     private Magic magic = new Magic();
     

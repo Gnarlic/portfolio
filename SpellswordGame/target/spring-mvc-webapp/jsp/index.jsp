@@ -24,7 +24,8 @@
             <div class="text-center">
                 <div>
                     <h2 id="playerHealth" style="color:greenyellow">Player Health: ${playerHealth}</h2>
-                    <h2 id="enemyHealth" style="color:#B20000">Enemy Health: ${enemyHealth}</h2>
+                    <h2 id="enemyName" style="color:#B20000">Enemy Type: ${enemy.enemyName}</h2>
+                    <h2 id="enemyHealth" style="color:#B20000">Enemy Health: ${enemy.health}</h2>
                     <h2 id="weapon" style="color:darkslategray">Weapon: ${weaponName}</h2>
                     <a id="changeWeapon"><button>Change Weapon</button></a>
                     <div id="weaponList">
@@ -90,7 +91,7 @@
                         }
                     });
                 });
-            })
+            });
         </script>
     </body>
 </html>

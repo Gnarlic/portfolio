@@ -6,12 +6,15 @@
 package gnarlitronic.ps.spellswordgame.dao;
 
 import gnarlitronic.ps.spellswordgame.model.PlayerCharacter;
+import javax.inject.Inject;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
  * @author Elnic
  */
 public class PlayerCharacterDaoDbImpl implements PlayerCharacterDao{
+    
     
     private PlayerCharacter pc = new PlayerCharacter();
 

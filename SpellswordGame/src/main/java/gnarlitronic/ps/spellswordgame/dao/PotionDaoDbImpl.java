@@ -5,6 +5,9 @@
  */
 package gnarlitronic.ps.spellswordgame.dao;
 
+import javax.inject.Inject;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 /**
  *
  * @author Elnic

@@ -13,6 +13,8 @@ import java.util.Objects;
  */
 public class Armor {
     
+    
+    
     private int armorId;
     private String name;
     private String elementalResist;

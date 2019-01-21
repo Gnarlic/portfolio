@@ -7,6 +7,8 @@ package gnarlitronic.ps.spellswordgame.model;
 
 import java.util.Arrays;
 import java.util.Objects;
+import javax.inject.Inject;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
@@ -23,8 +25,19 @@ public class Enemy {
     private String elementalResistance;
     private String elementalWeakness;
     private int criticalStrikeChance;
+    private int criticalDmg;
     private int lootChance;
     private int points;
+
+    
+    
+    public int getCriticalDmg() {
+        return criticalDmg;
+    }
+
+    public void setCriticalDmg(int criticalDmg) {
+        this.criticalDmg = criticalDmg;
+    }
 
     public int getEnemyId() {
         return enemyId;
@@ -117,17 +130,18 @@ public class Enemy {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + this.enemyId;
-        hash = 29 * hash + Objects.hashCode(this.enemyName);
-        hash = 29 * hash + Arrays.hashCode(this.damageRange);
-        hash = 29 * hash + this.level;
-        hash = 29 * hash + this.maxHealth;
-        hash = 29 * hash + this.health;
-        hash = 29 * hash + Objects.hashCode(this.elementalResistance);
-        hash = 29 * hash + Objects.hashCode(this.elementalWeakness);
-        hash = 29 * hash + this.criticalStrikeChance;
-        hash = 29 * hash + this.lootChance;
-        hash = 29 * hash + this.points;
+        hash = 47 * hash + this.enemyId;
+        hash = 47 * hash + Objects.hashCode(this.enemyName);
+        hash = 47 * hash + Arrays.hashCode(this.damageRange);
+        hash = 47 * hash + this.level;
+        hash = 47 * hash + this.maxHealth;
+        hash = 47 * hash + this.health;
+        hash = 47 * hash + Objects.hashCode(this.elementalResistance);
+        hash = 47 * hash + Objects.hashCode(this.elementalWeakness);
+        hash = 47 * hash + this.criticalStrikeChance;
+        hash = 47 * hash + this.criticalDmg;
+        hash = 47 * hash + this.lootChance;
+        hash = 47 * hash + this.points;
         return hash;
     }
 
@@ -158,6 +172,9 @@ public class Enemy {
         if (this.criticalStrikeChance != other.criticalStrikeChance) {
             return false;
         }
+        if (this.criticalDmg != other.criticalDmg) {
+            return false;
+        }
         if (this.lootChance != other.lootChance) {
             return false;
         }
@@ -179,6 +196,4 @@ public class Enemy {
         return true;
     }
 
-    
-    
 }

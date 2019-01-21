@@ -6,6 +6,8 @@
 package gnarlitronic.ps.spellswordgame.dao;
 
 import gnarlitronic.ps.spellswordgame.model.Armor;
+import javax.inject.Inject;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
@@ -13,6 +15,7 @@ import gnarlitronic.ps.spellswordgame.model.Armor;
  */
 public class ArmorDaoDbImpl implements ArmorDao {
 
+   
     @Override
     public Armor getArmor() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

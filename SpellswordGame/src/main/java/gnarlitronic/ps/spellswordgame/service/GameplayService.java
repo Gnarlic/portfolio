@@ -42,6 +42,8 @@ public interface GameplayService {
     public List<Weapon> loadWeapons();
 
     public Weapon getWeapon(String id);
+
+    public Object getEnemy();
     
     
     

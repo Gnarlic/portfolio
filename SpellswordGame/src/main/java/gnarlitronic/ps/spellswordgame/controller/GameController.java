@@ -76,7 +76,7 @@ public class GameController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String playGame(HttpServletRequest request, Model model) {
         gService.reset();
-        model.addAttribute("enemyHealth", gService.getEnemyHealth());
+        model.addAttribute("enemy", gService.getEnemy());
         model.addAttribute("playerHealth", gService.getPlayerHealth());
         model.addAttribute("weaponName", gService.getEquippedWeapon());
         model.addAttribute("magicName", gService.getEquippedMagic());
