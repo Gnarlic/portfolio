@@ -43,7 +43,9 @@ public interface GameplayService {
 
     public Weapon getWeapon(String id);
 
-    public Object getEnemy();
+    public Enemy getEnemy();
+
+    public PlayerCharacter getPlayer();
     
     
     

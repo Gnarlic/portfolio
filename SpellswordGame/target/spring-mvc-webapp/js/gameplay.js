@@ -72,12 +72,12 @@ function attack() {
         async: false,
         dataType: 'json',
         success: function (combatInfo) {
-            $('#playerHealth').text("Player Health: " + combatInfo.playerHealth);
-            $('#enemyHealth').text("Enemy Health: " + combatInfo.enemyHealth);
+            $('#playerHealth').text("Player Health: " + combatInfo.playerCharacter.health);
+            $('#enemyHealth').text("Enemy Health: " + combatInfo.enemy.health);
             $('#errorMessage').text(combatInfo.gameStatus);
             console.log("success");
-            console.log(combatInfo.playerHealth);
-            console.log(combatInfo.enemyHealth);
+            console.log(combatInfo.playerCharacter.name);
+            console.log(combatInfo.enemy.health);
         },
         error: function () {
             $('#errorMessages').val('Error calling web service. Please try again later.');

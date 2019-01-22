@@ -5,7 +5,11 @@
  */
 package gnarlitronic.ps.spellswordgame.controller;
 
+import gnarlitronic.ps.spellswordgame.model.Armor;
+import gnarlitronic.ps.spellswordgame.model.Enemy;
+import gnarlitronic.ps.spellswordgame.model.Magic;
 import gnarlitronic.ps.spellswordgame.model.PlayerCharacter;
+import gnarlitronic.ps.spellswordgame.model.Potion;
 import gnarlitronic.ps.spellswordgame.model.Weapon;
 import gnarlitronic.ps.spellswordgame.service.GameplayService;
 import gnarlitronic.ps.spellswordgame.service.GameplayServiceImpl;
@@ -33,24 +37,60 @@ public class GameController {
 
     public class CombatInfo {
 
-        int enemyHealth = 0;
-        int playerHealth = 0;
+        PlayerCharacter playerCharacter;
+        Enemy enemy;
+        Weapon weapon;
+        Magic magic;
+        Armor armor;
+        Potion potion;
         String gameStatus = "";
 
-        public int getEnemyHealth() {
-            return enemyHealth;
+        public PlayerCharacter getPlayerCharacter() {
+            return playerCharacter;
         }
 
-        public void setEnemyHealth(int enemyHealth) {
-            this.enemyHealth = enemyHealth;
+        public void setPlayerCharacter(PlayerCharacter playerCharacter) {
+            this.playerCharacter = playerCharacter;
         }
 
-        public int getPlayerHealth() {
-            return playerHealth;
+        public Enemy getEnemy() {
+            return enemy;
         }
 
-        public void setPlayerHealth(int playerHealth) {
-            this.playerHealth = playerHealth;
+        public void setEnemy(Enemy enemy) {
+            this.enemy = enemy;
+        }
+
+        public Weapon getWeapon() {
+            return weapon;
+        }
+
+        public void setWeapon(Weapon weapon) {
+            this.weapon = weapon;
+        }
+
+        public Magic getMagic() {
+            return magic;
+        }
+
+        public void setMagic(Magic magic) {
+            this.magic = magic;
+        }
+
+        public Armor getArmor() {
+            return armor;
+        }
+
+        public void setArmor(Armor armor) {
+            this.armor = armor;
+        }
+
+        public Potion getPotion() {
+            return potion;
+        }
+
+        public void setPotion(Potion potion) {
+            this.potion = potion;
         }
 
         public String getGameStatus() {
@@ -61,15 +101,7 @@ public class GameController {
             this.gameStatus = gameStatus;
         }
         
-        private PlayerCharacter pc;
-
-        public PlayerCharacter getPc() {
-            return pc;
-        }
-
-        public void setPc(PlayerCharacter pc) {
-            this.pc = pc;
-        }
+        
 
     }
 
@@ -77,30 +109,30 @@ public class GameController {
     public String playGame(HttpServletRequest request, Model model) {
         gService.reset();
         model.addAttribute("enemy", gService.getEnemy());
-        model.addAttribute("playerHealth", gService.getPlayerHealth());
+        model.addAttribute("player", gService.getPlayer());
         model.addAttribute("weaponName", gService.getEquippedWeapon());
         model.addAttribute("magicName", gService.getEquippedMagic());
         return "/index";
     }
 
     @CrossOrigin
-    @RequestMapping(value="/listWeapons", method = RequestMethod.GET)
+    @RequestMapping(value = "/listWeapons", method = RequestMethod.GET)
     @ResponseBody
     public List<Weapon> availableWeapons() {
-        
+
         return gService.loadWeapons();
-        
+
     }
-    
+
     @CrossOrigin
-    @RequestMapping(value="/selectWeapon/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/selectWeapon/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Weapon weapon(@PathVariable("id") String id) {
-        
+
         return gService.getWeapon(id);
-        
+
     }
-    
+
     @CrossOrigin
     @RequestMapping(value = "/attack", method = RequestMethod.GET)
     @ResponseBody
@@ -108,25 +140,25 @@ public class GameController {
         CombatInfo info = new CombatInfo();
         if (gService.getPlayerHealth() <= 0) {
             gService.reset();
-            info.setPlayerHealth(gService.getPlayerHealth());
-            info.setEnemyHealth(gService.getEnemyHealth());
+            info.setPlayerCharacter(gService.getPlayer());
+            info.setEnemy(gService.getEnemy());
         } else if (gService.getEnemyHealth() <= 0) {
             gService.reset();
-            info.setEnemyHealth(gService.getEnemyHealth());
-            info.setPlayerHealth(gService.getPlayerHealth());
+            info.setPlayerCharacter(gService.getPlayer());
+            info.setEnemy(gService.getEnemy());
         } else {
             gService.attack();
             if (gService.getEnemyHealth() <= 0) {
-                info.setEnemyHealth(0);
-                info.setPlayerHealth(gService.getPlayerHealth());
+                info.enemy.setHealth(0);
+                info.playerCharacter.setHealth(gService.getPlayerHealth());
                 info.setGameStatus("You Win!");
             } else if (gService.getPlayerHealth() <= 0) {
-                info.setPlayerHealth(0);
-                info.setEnemyHealth(gService.getEnemyHealth());
+                info.playerCharacter.setHealth(0);
+                info.enemy.setHealth(gService.getEnemyHealth());
                 info.setGameStatus("You Lose!");
             } else {
-                info.setEnemyHealth(gService.getEnemyHealth());
-                info.setPlayerHealth(gService.getPlayerHealth());
+                info.setPlayerCharacter(gService.getPlayer());
+                info.setEnemy(gService.getEnemy());
             }
         }
 

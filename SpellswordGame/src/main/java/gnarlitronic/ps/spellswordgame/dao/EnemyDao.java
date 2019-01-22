@@ -17,5 +17,5 @@ public interface EnemyDao {
     
     public void setEnemy(Enemy enemy);
     
-    public void reset();
+    public void reset(int pcLvl);
 }

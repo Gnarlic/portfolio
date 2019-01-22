@@ -67,7 +67,7 @@ public class GameplayServiceImpl implements GameplayService {
         if (attackChance >= criticalStrikeRequirement) {
             enemy.setHealth(enemy.getHealth() - (sword.getCritDmg() + magic.getCritDmg()));
             eDao.setEnemy(enemy);
-        } else if (attackChance > 65) {
+        } else if (attackChance > 35) {
             int actualAttackDamage = ran.nextInt(attackDamage) + 1;
             enemy.setHealth(enemy.getHealth() - actualAttackDamage);
             eDao.setEnemy(enemy);
@@ -132,10 +132,11 @@ public class GameplayServiceImpl implements GameplayService {
     //temporary method for restarting game
     @Override
     public void reset() {
+        pDao.reset();
         mDao.reset();
         wDao.reset();
-        eDao.reset();
-        pDao.reset();
+        eDao.reset(pDao.getPc().getLevel());
+        
     }
 
     //returns all available weapons
@@ -153,10 +154,16 @@ public class GameplayServiceImpl implements GameplayService {
     }
 
     @Override
-    public Object getEnemy() {
-        
+    public Enemy getEnemy() {
         return eDao.getEnemy();
         
+    }
+
+    @Override
+    public PlayerCharacter getPlayer() {
+    
+        return pDao.getPc();
+    
     }
     
     

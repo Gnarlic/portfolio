@@ -6,8 +6,12 @@
 package gnarlitronic.ps.spellswordgame.dao;
 
 import gnarlitronic.ps.spellswordgame.model.PlayerCharacter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Random;
 import javax.inject.Inject;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 /**
  *
@@ -49,7 +53,7 @@ public class PlayerCharacterDaoDbImpl implements PlayerCharacterDao{
     @Override
     public void reset() {
         
-        pc.setPlayerId(1);
+        pc.setPlayerId(5);
         pc.setName("Sir Arnold");
         pc.setMaxHealth(100);
         pc.setHealth(100);
@@ -64,6 +68,23 @@ public class PlayerCharacterDaoDbImpl implements PlayerCharacterDao{
         pc.setUnarmedDmg(2);
         pc.setExperience(0);
         pc.setCriticalStrikeChance(2);
+        
+    }
+    
+    private static final class EnemyMapper implements RowMapper<PlayerCharacter> {
+        
+        @Override
+        public PlayerCharacter mapRow(ResultSet rs, int i) throws SQLException {
+            PlayerCharacter pc = new PlayerCharacter();
+            Random ran = new Random();
+            pc.setPlayerId(rs.getInt("PlayerId"));
+            pc.setName(rs.getString("CharacterName"));
+            int health = ran.nextInt(rs.getInt("LvL")*40);
+            pc.setMaxHealth(health);
+            pc.setHealth(health);
+            pc.setLevel(rs.getInt("Lvl"));
+            return pc;
+        }
         
     }
     

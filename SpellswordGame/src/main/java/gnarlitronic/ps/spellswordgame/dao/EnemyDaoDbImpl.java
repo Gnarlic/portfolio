@@ -29,7 +29,7 @@ public class EnemyDaoDbImpl implements EnemyDao {
 
     @Override
     public Enemy getEnemy() {
-        
+
         return enemy;
     }
 
@@ -39,9 +39,20 @@ public class EnemyDaoDbImpl implements EnemyDao {
     }
 
     @Override
-    public void reset() {
+    public void reset(int pcLvl) {
         this.enemy = jdbc.queryForObject("select * from EnemyGeneration where Id = 1", new EnemyMapper());
-
+        Random ran = new Random();
+        enemy.setLevel((ran.nextInt(10))+pcLvl+1);
+        if(enemy.getLevel() <= 0) {
+            enemy.setLevel(1);
+        }
+        int minDmg = ran.nextInt((enemy.getLevel() * 2) + 1);
+        int maxDmg = ran.nextInt(enemy.getLevel() * 5) + minDmg;
+        enemy.setDamageRange(new int[]{minDmg, maxDmg});
+        enemy.setCriticalDmg(minDmg + maxDmg);
+        int health = enemy.getHealth() * enemy.getLevel();
+        enemy.setMaxHealth(health);
+        enemy.setHealth(health);
     }
 
     private static final class EnemyMapper implements RowMapper<Enemy> {
@@ -49,17 +60,13 @@ public class EnemyDaoDbImpl implements EnemyDao {
         @Override
         public Enemy mapRow(ResultSet rs, int i) throws SQLException {
             Enemy enemy = new Enemy();
-            enemy.setEnemyId(rs.getInt("Id"));
-            enemy.setLevel(rs.getInt("Lvl"));
             Random ran = new Random();
-            int minDmg = ran.nextInt(enemy.getLevel() * 3) + enemy.getLevel();
-            int maxDmg = ran.nextInt(enemy.getLevel() * 7) + minDmg;
-            enemy.setDamageRange(new int[]{minDmg, maxDmg});
-            int health = ran.nextInt(rs.getInt("Health"));
+            enemy.setEnemyId(rs.getInt("Id"));
+            int health = ran.nextInt(rs.getInt("Health"))+11;
             enemy.setMaxHealth(health);
             enemy.setHealth(health);
             enemy.setCriticalStrikeChance(rs.getInt("CriticalStrikeModifier"));
-            enemy.setCriticalDmg(minDmg + maxDmg);
+            
             enemy.setEnemyName("Troll");
             return enemy;
         }
