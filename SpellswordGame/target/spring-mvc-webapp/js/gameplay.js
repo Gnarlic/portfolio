@@ -49,7 +49,7 @@ function listWeapons() {
         success: function (weapons) {
             $('#weaponList').empty();
             weapons.forEach(function (weapon) {
-                $('#weaponList').append('<div><a id="' + weapon.weaponId + '" class="selectWeapon" onClick="selectWeapon(this.id)"><button>' + weapon.name + '</button></div>')
+                $('#weaponList').append('<div>Weapon Name: <a id="' + weapon.weaponId + '" class="selectWeapon" onClick="selectWeapon(this.id)"><button>' + weapon.name + '</button></div>')
                 console.log(weapon.critDmg);
             });
 
@@ -72,8 +72,8 @@ function attack() {
         async: false,
         dataType: 'json',
         success: function (combatInfo) {
-            $('#playerHealth').text("Player Health: " + combatInfo.playerCharacter.health);
-            $('#enemyHealth').text("Enemy Health: " + combatInfo.enemy.health);
+            $('#playerHealth').text("Player Level: " + combatInfo.playerCharacter.level + " Health: " + combatInfo.playerCharacter.health);
+            $('#enemyHealth').text("Enemy Type: " + combatInfo.enemy.enemyName + " Level: " + combatInfo.enemy.level + " Health: " + combatInfo.enemy.health);
             $('#errorMessage').text(combatInfo.gameStatus);
             console.log("success");
             console.log(combatInfo.playerCharacter.name);

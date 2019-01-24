@@ -138,6 +138,8 @@ public class GameController {
     @ResponseBody
     public CombatInfo nextRound() {
         CombatInfo info = new CombatInfo();
+        info.setEnemy(gService.getEnemy());
+        info.setPlayerCharacter(gService.getPlayer());
         if (gService.getPlayerHealth() <= 0) {
             gService.reset();
             info.setPlayerCharacter(gService.getPlayer());

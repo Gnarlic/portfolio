@@ -15,83 +15,105 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     </head>
-    <body style="background-color:dodgerblue">
+    <body style="background-color:#005C91">
 
         <div class="container">
             <div class="text-center">
-                <a href="http://www.gnarlitronic.com/#projects" style="color:white">Return to Homepage</a>                
+                <a href="http://www.gnarlitronic.com/#projects" style="color:white">Return to Homepage</a>    
+                <hr/>
+                <h1>Spellsword</h1>
             </div>
             <div class="text-center">
-                <div>
-                    <h2 id="playerHealth" style="color:greenyellow">Player Level: ${player.level} Health: ${player.health}</h2>
-                    <h2 id="enemyHealth" style="color:#B20000">Enemy Type: ${enemy.enemyName} Level: ${enemy.level} Health: ${enemy.health}</h2>
-                    <h2 id="weapon" style="color:darkslategray">Weapon: ${weaponName}</h2>
-                    <a id="changeWeapon"><button>Change Weapon</button></a>
-                    <div id="weaponList">
-                        
+                <div class="row text-center" style="margin-top:5%">
+                    <div class="col-lg-4" style="color:greenyellow">
+                        <div>
+                            <h2 id="playerHealth" >Player</h2>
+                        </div>
+                        <div>
+                            <h4> Level: ${player.level} Health: ${player.health}</h4>
+                        </div>
                     </div>
-                    <h2 id="magic" style="color:purple">Magic Item: ${magicName}</h2>
-                    <h1 id="errorMessage">${gameover}</h1>
+                    <div class="col-lg-4">
+                        <h2 id="enemyHealth" style="color:#DB8282">Enemy Type: ${enemy.enemyName} Level: ${enemy.level} Health: ${enemy.health}</h2>
+                    </div>
+                    <div class="col-lg-4">
+                        <h2 id="weapon" style="color:#79DA86">Weapon: ${weaponName}</h2>
+
+                        <h2 id="magic" style="color:#AA99E9">Magic Item: ${magicName}</h2>
+                    </div>
+
                 </div>
-                <div id="test">
+                <h1 id="errorMessage">${gameover}</h1>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-5"></div>
+                <div class="col-md-2" id="test">
                     <p>
                         <a id="attack"><button>Attack</button></a>
                     </p>
-                </div>
-                <div>
-                    <hr/>
+
+
                     <form action="${pageContext.request.contextPath}/">
                         <button type="submit">Reset</button>
 
                     </form>
                 </div>
+                <div class="col-md-5"></div>
+            </div>
+            <br/>
+            <div class="text-center">
+                <button id="changeWeapon">Change Weapons</button>
+            </div>
+            <div class="text-center text-white" id="weaponList">
+
             </div>
         </div>
+    </div>
 
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-        <script>
-            var requestContextPath = '${pageContext.request.contextPath}';
-        </script>
-        <script src="${pageContext.request.contextPath}/js/gameplay.js"</script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script>
+        var requestContextPath = '${pageContext.request.contextPath}';
+    </script>
+    <script src="${pageContext.request.contextPath}/js/gameplay.js"</script>
 
-        <script>
-            $(document).ready(function () {
-                // Add smooth scrolling to all links in navbar + footer link
-                $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
-                    // Make sure this.hash has a value before overriding default behavior
-                    if (this.hash !== "") {
-                        // Prevent default anchor click behavior
-                        event.preventDefault();
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
 
-                        // Store hash
-                        var hash = this.hash;
+                    // Store hash
+                    var hash = this.hash;
 
-                        // Using jQuery's animate() method to add smooth page scroll
-                        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-                        $('html, body').animate({
-                            scrollTop: $(hash).offset().top
-                        }, 900, function () {
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
 
-                            // Add hash (#) to URL when done scrolling (default click behavior)
-                            window.location.hash = hash;
-                        });
-                    } // End if
-                });
-
-                $(window).scroll(function () {
-                    $(".slideanim").each(function () {
-                        var pos = $(this).offset().top;
-
-                        var winTop = $(window).scrollTop();
-                        if (pos < winTop + 600) {
-                            $(this).addClass("slide");
-                        }
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
                     });
+                } // End if
+            });
+
+            $(window).scroll(function () {
+                $(".slideanim").each(function () {
+                    var pos = $(this).offset().top;
+
+                    var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                        $(this).addClass("slide");
+                    }
                 });
             });
-        </script>
-    </body>
+        });
+    </script>
+</body>
 </html>
 
