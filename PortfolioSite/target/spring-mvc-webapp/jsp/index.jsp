@@ -396,7 +396,7 @@
                         <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Calculator web app. Next feature planned is to display past calculations.
                     </li>
                     <li>
-                        <a style="font-size:16pt;text-decoration:underline">DeltaV</a> - (Coming Soon) Basic thrust calculator for rockets that displays delta-v, burn time, and starting and ending thrust. Calculations can be saved.
+                        <a href="http://www.gnarlitronic.com/tabtracker" style="font-size:16pt;text-decoration:underline">Tab Tracker</a> - Library for keeping track of links to tabs for learning songs on guitar. Uses mariaDB database to store information. Search function coming soon.
                     </li>
                     <li>
                         <a style="font-size:16pt;text-decoration:underline">Travel Log</a> - (Coming Soon) Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.

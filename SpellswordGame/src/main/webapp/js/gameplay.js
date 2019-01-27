@@ -14,16 +14,16 @@ $(document).ready(function () {
 });
 
 function selectWeapon(clickedId) {
-    
+
     var actualPath = requestContextPath + ("/selectWeapon/" + clickedId);
-    
+
     $.ajax({
         type: 'GET',
         url: actualPath,
         dataType: 'json',
         success: function (weapon) {
             $('#weapon').empty();
-            $('#weapon').append('Weapon: '+weapon.name + ' Attack: ' + weapon.minDmg +'-'+weapon.maxDmg + ' (Crit: ' + weapon.critDmg + ')');
+            $('#weapon').append('Weapon: ' + weapon.name + ' Attack: ' + weapon.minDmg + '-' + weapon.maxDmg + ' (Crit: ' + weapon.critDmg + ')');
             $('#weaponList').empty();
             console.log(weapon.name);
             console.log(weapon.minDmg);
@@ -33,7 +33,7 @@ function selectWeapon(clickedId) {
             $('#errorMessages').val('Error calling web service. Please try again later.');
         }
     });
-    
+
 }
 
 function listWeapons() {
@@ -49,7 +49,11 @@ function listWeapons() {
         success: function (weapons) {
             $('#weaponList').empty();
             weapons.forEach(function (weapon) {
-                $('#weaponList').append('<div>Weapon Name: <a id="' + weapon.weaponId + '" class="selectWeapon" onClick="selectWeapon(this.id)"><button>' + weapon.name + '</button></div>')
+                $('#weaponList').append('<div style="margin-bottom:10px">Weapon Name: '
+                        + weapon.name
+                        + '  <a id="' 
+                        + weapon.weaponId
+                        + '" class="selectWeapon pl-2" onClick="selectWeapon(this.id)"><button>Select</button></div>');
                 console.log(weapon.critDmg);
             });
 
@@ -72,8 +76,8 @@ function attack() {
         async: false,
         dataType: 'json',
         success: function (combatInfo) {
-            $('#playerHealth').text("Player Level: " + combatInfo.playerCharacter.level + " Health: " + combatInfo.playerCharacter.health);
-            $('#enemyHealth').text("Enemy Type: " + combatInfo.enemy.enemyName + " Level: " + combatInfo.enemy.level + " Health: " + combatInfo.enemy.health);
+            $('#player').text("Level: " + combatInfo.playerCharacter.level + " | Health: " + combatInfo.playerCharacter.health);
+            $('#enemy').text("Type: " + combatInfo.enemy.enemyName + " | Level: " + combatInfo.enemy.level + " | Health: " + combatInfo.enemy.health);
             $('#errorMessage').text(combatInfo.gameStatus);
             console.log("success");
             console.log(combatInfo.playerCharacter.name);

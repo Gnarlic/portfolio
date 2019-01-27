@@ -21,51 +21,50 @@
             <div class="text-center">
                 <a href="http://www.gnarlitronic.com/#projects" style="color:white">Return to Homepage</a>    
                 <hr/>
-                <h1>Spellsword</h1>
+                <h1 style="color:#00CDFF">Spellsword</h1>
             </div>
             <div class="text-center">
                 <div class="row text-center" style="margin-top:5%">
                     <div class="col-lg-4" style="color:greenyellow">
                         <div>
-                            <h2 id="playerHealth" >Player</h2>
+                            <h2>Player</h2>
                         </div>
                         <div>
-                            <h4> Level: ${player.level} Health: ${player.health}</h4>
+                            <h4 id="player"> Level: ${player.level} | Health: ${player.health}</h4>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <h2 id="enemyHealth" style="color:#DB8282">Enemy Type: ${enemy.enemyName} Level: ${enemy.level} Health: ${enemy.health}</h2>
+                    <div class="col-lg-4" style="color:#DB8282">
+                        <div>
+                            <h2 >Enemy</h2>
+                        </div>
+                        <div>
+                            <h4 id="enemy">Type: ${enemy.enemyName} | Level: ${enemy.level} | Health: ${enemy.health}</h4>
+                        </div>
                     </div>
                     <div class="col-lg-4">
                         <h2 id="weapon" style="color:#79DA86">Weapon: ${weaponName}</h2>
-
                         <h2 id="magic" style="color:#AA99E9">Magic Item: ${magicName}</h2>
                     </div>
 
                 </div>
                 <h1 id="errorMessage">${gameover}</h1>
             </div>
-            <div class="row text-center">
-                <div class="col-md-5"></div>
+            <div class="row text-center" style="margin-bottom:30px">
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                    <a id="attack"><button>Attack</button></a>
+                </div>
                 <div class="col-md-2" id="test">
-                    <p>
-                        <a id="attack"><button>Attack</button></a>
-                    </p>
-
-
                     <form action="${pageContext.request.contextPath}/">
                         <button type="submit">Reset</button>
-
                     </form>
                 </div>
-                <div class="col-md-5"></div>
-            </div>
-            <br/>
-            <div class="text-center">
-                <button id="changeWeapon">Change Weapons</button>
+                <div class="col-md-2">
+                    <button id="changeWeapon">Change Weapons</button>
+                </div>
+                <div class="col-md-3"></div>
             </div>
             <div class="text-center text-white" id="weaponList">
-
             </div>
         </div>
     </div>
