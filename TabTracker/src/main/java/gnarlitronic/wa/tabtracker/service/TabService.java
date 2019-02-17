@@ -18,4 +18,8 @@ public interface TabService {
     
     public Tab addTab(Tab t);
     
+    public List<Tab> searchTabs(String searchTerm, String category);
+
+    public void deleteTab(String parameter);
+    
 }

@@ -17,5 +17,9 @@ public interface TabDao {
     public List<Tab> loadTabs();
     
     public Tab addTab(Tab tab);
+
+    public List<Tab> searchTabs(String searchTerm, String category);
+
+    public void deleteTab(String parameter);
     
 }

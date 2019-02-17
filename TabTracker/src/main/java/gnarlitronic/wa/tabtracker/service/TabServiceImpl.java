@@ -34,6 +34,16 @@ public class TabServiceImpl implements TabService {
         return tDao.addTab(t);
     
     }
+
+    @Override
+    public List<Tab> searchTabs(String searchTerm, String category) {
+        return tDao.searchTabs(searchTerm, category);
+    }
+
+    @Override
+    public void deleteTab(String parameter) {
+        tDao.deleteTab(parameter);
+    }
     
     
     

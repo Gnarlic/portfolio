@@ -396,7 +396,7 @@
                         <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Calculator web app. Next feature planned is to display past calculations.
                     </li>
                     <li>
-                        <a href="http://www.gnarlitronic.com/tabtracker" style="font-size:16pt;text-decoration:underline">Tab Tracker</a> - Library for keeping track of links to tabs for learning songs on guitar. Uses mariaDB database to store information. Search function coming soon.
+                        <a href="http://www.gnarlitronic.com/tabtracker" style="font-size:16pt;text-decoration:underline">Tab Tracker</a> - Library for keeping track of links to tabs for learning songs on guitar. Uses mariaDB database to store information. Database searchable by song name, or by artist.
                     </li>
                     <li>
                         <a style="font-size:16pt;text-decoration:underline">Travel Log</a> - (Coming Soon) Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.

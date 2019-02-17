@@ -43,5 +43,18 @@ public class TabController {
             return "/index";
         }
     }
+    
+    @RequestMapping(value="/search", method = RequestMethod.GET)
+    public String search(@ModelAttribute("tab") Tab tab, HttpServletRequest request, Model model) {
+        model.addAttribute("tabList", tServ.searchTabs(request.getParameter("searchTerm"), request.getParameter("category")));
+        return "/index";
+    }
+    
+    @RequestMapping(value="/delete", method=RequestMethod.GET)
+    public String deleteTab(@ModelAttribute("tab") Tab tab, HttpServletRequest request, Model model) {
+        tServ.deleteTab(request.getParameter("id"));
+        model.addAttribute("tabList", tServ.loadTabs());
+        return "/index";
+    }
 
 }

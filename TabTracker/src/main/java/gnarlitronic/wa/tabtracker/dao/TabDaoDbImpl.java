@@ -26,6 +26,9 @@ public class TabDaoDbImpl implements TabDao {
     
     private static final String SQL_GET_ALL_TABS = "select * from TabList";
     private static final String SQL_ADD_TAB = "insert into TabList (SongName, Artist, URL) values (?,?,?)";
+    private static final String SQL_SEARCH_SONG_NAMES = "select * from TabList where SongName like ?";
+    private static final String SQL_SEARCH_ARTIST = "select * from TabList where Artist like ?";
+    private static final String SQL_DELETE_TAB = "delete from TabList where Id = ?";
     
     @Override
     public List<Tab> loadTabs() {
@@ -40,6 +43,22 @@ public class TabDaoDbImpl implements TabDao {
         int tabId = jdbc.queryForObject("select LAST_INSERT_ID()", Integer.class);
         tab.setId(tabId);
         return tab;
+    }
+
+    @Override
+    public List<Tab> searchTabs(String searchTerm, String category) {
+        switch (category) {
+            case "artist": return jdbc.query(SQL_SEARCH_ARTIST, new TabMapper(), "%"+searchTerm+"%");
+            
+            case "songName": return jdbc.query(SQL_SEARCH_SONG_NAMES, new TabMapper(), "%"+searchTerm+"%");
+            
+            default: return jdbc.query(SQL_GET_ALL_TABS, new TabMapper());
+        }
+    }
+
+    @Override
+    public void deleteTab(String parameter) {
+        jdbc.update(SQL_DELETE_TAB, parameter);
     }
     
     private static final class TabMapper implements RowMapper<Tab> {
