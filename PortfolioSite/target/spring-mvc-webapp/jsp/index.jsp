@@ -251,8 +251,8 @@
                 <div class="col-md-3"><div></div><img src="${pageContext.request.contextPath}/images/1202182203_HDR_3.jpg" style="width:100%;border:solid black 2px"></div>
                 <div class="col-md-6"><div></div>
                     <p class="text-center" style="font-size:20pt">
-                        I'm a full stack web developer ready to tackle any project, and am skilled in utilizing RESTful design, Java, Spring/Spring Boot, and SQL to build efficient solutions. I am constantly on the hunt to expand and learn new skills. Here you can check out my latest work.
-                        I'm currently developing Spellsword, a browser-based rogue-like RPG as a personal project.
+                        I'm a full stack web developer ready to tackle any project, and am skilled in utilizing RESTful design, Java, Spring/Spring Boot, and SQL to build efficient solutions. As an inquisitive INTP in Myers-Briggs model, I am constantly on the hunt to expand and learn new skills. Here you can check out my latest work.
+                        I'm currently developing Mapspace, a web application for saving locations on a map. As someone who enjoys traveling remote forest roads, I thought it would be useful to note down the places I found in one place, and be able to save information about them. So I decided to build that myself!
                     </p>
                 </div>
                 <div class="col-md-3 text-center"><div></div>
@@ -270,17 +270,16 @@
                 <div class="col-md-4">
                     <ul style="list-style-type:none">
                         <li>Java</li>
-                        <li>Kotlin</li>
                         <li>HTML / CSS / Javascript</li>
                         <li>MySql</li>
                         <li>JavaServer Pages (JSP)</li>
+                        <li>OOP</li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <ul style="list-style-type:none">
                         <li>SOAP/REST</li>
                         <li>TDD</li>
-                        <li>OOP</li>
                         <li>jQuery</li>
                         <li>Data / Class Modeling</li>
                         <li>Netbeans IDE</li>
@@ -389,17 +388,17 @@
                     Personal Projects - <br>
                 <ul class="text-white">
                     <li>
-                        <a href="http://www.gnarlitronic.com/spellsword" style="font-size:16pt;text-decoration:underline">Spellsword</a> - (Just allows simple combat at the moment - first milestone will include random enemy generation for encounters, and random weapon stats. Also basic database implementation and the ability to save your play record.) Rogue-like fantasy RPG. Combining magic and weapons, fight enemies to gain gold and better equipment. The different combinations of magic and weapons drastically change combat.
+                        <a href="http://www.gnarlitronic.com/spellsword" style="font-size:16pt;text-decoration:underline">Spellsword</a> - A simple combat rpg game that generates random enemies that you fight. More features to come!
                         will be hosted here soon, and on github.
                     </li>
                     <li>
-                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Calculator web app. Next feature planned is to display past calculations.
+                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Simple calculator app.
                     </li>
                     <li>
-                        <a href="http://www.gnarlitronic.com/tabtracker" style="font-size:16pt;text-decoration:underline">Tab Tracker</a> - Library for keeping track of links to tabs for learning songs on guitar. Uses mariaDB database to store information. Database searchable by song name, or by artist.
+                        <a href="http://www.gnarlitronic.com/tabtracker" style="font-size:16pt;text-decoration:underline">Tab Tracker</a> - Library for storing links to guitar tablature. Utilizes mariaDb to store song name, artist, and link to tabs. Tabs within the database are searchable by song name or artist.
                     </li>
                     <li>
-                        <a style="font-size:16pt;text-decoration:underline">Travel Log</a> - (Coming Soon) Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.
+                        <a href="http://www.gnarlitronic.com/mapspace" style="font-size:16pt;text-decoration:underline">MapSpace</a> -  Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.
                     </li>
                     <li>
                         <h3>Other projects are on my Github account</h3>

@@ -36,7 +36,9 @@ public class TabDaoDbImpl implements TabDao {
         return jdbc.query(SQL_GET_ALL_TABS, new TabMapper());
     
     }
-
+    
+    
+    //Adds row to TabList table using parameters stored in tab object
     @Override
     public Tab addTab(Tab tab) {
         jdbc.update(SQL_ADD_TAB, tab.getSongName(), tab.getArtist(), tab.getUrl());
@@ -45,6 +47,7 @@ public class TabDaoDbImpl implements TabDao {
         return tab;
     }
 
+    //Retrieves rows from TabList table that match search input
     @Override
     public List<Tab> searchTabs(String searchTerm, String category) {
         switch (category) {
@@ -56,11 +59,13 @@ public class TabDaoDbImpl implements TabDao {
         }
     }
 
+    //Removes row from TabList table that matches id
     @Override
     public void deleteTab(String parameter) {
         jdbc.update(SQL_DELETE_TAB, parameter);
     }
     
+    //This constructs a tab object from row in TabList table
     private static final class TabMapper implements RowMapper<Tab> {
         
         @Override
