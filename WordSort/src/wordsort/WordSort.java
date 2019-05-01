@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testing;
+package wordsort;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Elnic
  */
-public class Testing {
+public class WordSort {
 
     /**
      * @param args the command line arguments
@@ -110,4 +110,5 @@ public class Testing {
         }
         System.out.println("Goodbye");
     }
+    
 }
