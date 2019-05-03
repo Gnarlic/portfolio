@@ -52,13 +52,25 @@
                             </div>
                         </form>
                     </div>
-                            <div>
-                                
-                                <h2>Answer: ${returnAnswer}</h2>
-                            </div>
+                    <div>
+
+                        <h2>Answer: ${returnAnswer}</h2>
+                    </div>
+                    <div>
+                        <div>
+                            <h2>Last Ten Calculations:</h2>
+                        </div>
+                        <div>
+                        <c:forEach var="thisCalc" items="${lastTen}">
+                            <h3>
+                            ${thisCalc[0]} ${thisCalc[1]} ${thisCalc[2]} = ${thisCalc[3]}
+                            </h3>
+                        </c:forEach>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-3 sidediv">
-                    
+
                 </div>
             </div>
         </div>

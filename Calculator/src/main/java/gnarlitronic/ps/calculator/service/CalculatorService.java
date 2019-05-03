@@ -5,6 +5,9 @@
  */
 package gnarlitronic.ps.calculator.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Elnic
@@ -18,5 +21,7 @@ public interface CalculatorService {
     public double multiply(double a, double b);
 
     public double divide(double a, double b);
+    
+    public List<String[]> strArray();
     
 }

@@ -22,10 +22,13 @@ public class CalcController {
 
     @Inject
     CalculatorService svc;
+    
+    
 
     //initial page load
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homePage(Model model) {
+        model.addAttribute("lastTen", svc.strArray());
         return "index";
     }
 
@@ -76,6 +79,7 @@ public class CalcController {
         model.addAttribute("operationType", operationType);
         model.addAttribute("returnAnswer", returnAnswer);
         model.addAttribute("error", error);
+        model.addAttribute("lastTen", svc.strArray());
 
         return "index";
     }

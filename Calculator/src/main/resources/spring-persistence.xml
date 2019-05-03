@@ -17,6 +17,9 @@
     <!-- Bean definitions go here -->
     <bean id="calculatorService"
           class="gnarlitronic.ps.calculator.service.CalculatorServiceImpl">
-          
+          <constructor-arg ref="StoredCalculations"/>
+    </bean>
+    <bean id ="StoredCalculations"
+          class="gnarlitronic.ps.calculator.dao.StoredCalculationsInMemImpl">
     </bean>
 </beans>
