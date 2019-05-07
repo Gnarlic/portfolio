@@ -61,7 +61,7 @@
         h2 {
             font-size: 24px;
             text-transform: uppercase;
-            color: #FFBC36;
+            color: #CAB58A;
             font-weight: 600;
             margin-bottom: 30px;
 
@@ -69,7 +69,7 @@
         h4 {
             font-size: 19px;
             line-height: 1.375em;
-            color: #FFBC36;
+            color: #CAB58A;
             font-weight: 400;
             margin-bottom: 30px;
             text-shadow:#000 1px 1px, #000 -1px 1px;
@@ -146,7 +146,7 @@
             color: red;
         }
         a {
-            color:#FFBC36;
+            color:#CAB58A;
         }
         a:hover {
             text-decoration:none;
@@ -231,14 +231,14 @@
 
                     <a href="https://www.linkedin.com/in/nicholas-seb-thompson"><li class="nav-item link-highlight">LINKEDIN</li></a>
 
-                    <a href="#contact"><li class="nav-item  link-highlight">CONTACT</li></a>
+                    <a href="mailto:nicholas.seb.thompson@gmail.com"><li class="nav-item  link-highlight">CONTACT</li></a>
                 </ul>
             </div>
 
         </nav>
         <div class="container" style="padding-top:50px">
             <div class="row" style="height:90vh">
-                <div id="infopane" class="col-md-4" style="background-color:rgba(121,184,220, 0.8);padding-top:20px;padding-bottom:20px">
+                <div id="infopane" class="col-md-4" style="background-color:rgba(121,184,220, 0.9);padding-top:20px;padding-bottom:20px">
 
                     <div>
                         <img src="${pageContext.request.contextPath}/images/1202182203_HDR_3.jpg" style="width:100%;border:solid black 2px">
@@ -253,9 +253,9 @@
                     </div>
                 </div>
 
-                <div id="main" class="col-md-8" style="background-color:rgba(179,179,179, 0.8);padding-top:30px">
+                <div id="main" class="col-md-8" style="background-color:rgba(179,179,179, 0.9);padding-top:30px">
                     <div class="text-center">
-                        <h2 class="" style="margin-bottom:10px;text-shadow:#000 1px 1px, #000 -1px 1px;color: #FFBC36;">Technical Skills</h2>
+                        <h2 class="" style="margin-bottom:20px;text-shadow:#000 1px 1px, #000 -1px 1px;color: #CAB58A;">Technical Skills</h2>
                     </div>
                     <div class="row text-center">
                         <div class="col-md-4">
@@ -286,10 +286,14 @@
                             </ul>
                         </div>
                     </div>
+                    <br>
+                    <hr/>
+                    <br>
+                    
                     <div>
                         <div>
-                            <h2 class="text-center" style="padding-bottom:10px;text-shadow:#000 1px 1px, #000 -1px 1px;color: #FFBC36;">
-                                Personal Projects</h2><br>
+                            <h2 class="text-center" style="padding-bottom:10px;text-shadow:#000 1px 1px, #000 -1px 1px;color: #CAB58A;">
+                                Personal Projects</h2>
                             <ul class="text-white">
                                 <li>
                                     <a href="http://www.gnarlitronic.com/spellsword" style="font-size:16pt;text-decoration:underline;text-shadow:#000 1px 1px">Spellsword</a> - A simple combat rpg game that generates random enemies that you fight. More features to come!
