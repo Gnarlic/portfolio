@@ -34,19 +34,16 @@
             padding-right:10px;
             padding-left:3px;
         }
-
         .link-highlight:hover {
             background-position: -100% 100%;
             color:#767681;
         }
-
         .top {
             border-top:solid black 3px;
             border-bottom:solid black 3px;
         }
-
         .parallax {
-            background-image: url(${pageContext.request.contextPath}/images/110.jpg);
+            background-image: url(${pageContext.request.contextPath}/images/psbackground.png);
             height:100vh;
             background-attachment:fixed;
             background-position:center;
@@ -55,23 +52,27 @@
             -webkit-background-size: cover;
         }
         body {
-            font: 400 15px Lato, sans-serif;
+            font: 400 18px Lato, sans-serif;
             line-height: 1.8;
-            color: #818181;
+            color: #fff;
+            <!--text-shadow: #000 1px 1px,
+                #000 -1px 1px;
         }
         h2 {
             font-size: 24px;
             text-transform: uppercase;
-            color: #303030;
+            color: #FFBC36;
             font-weight: 600;
             margin-bottom: 30px;
+
         }
         h4 {
             font-size: 19px;
             line-height: 1.375em;
-            color: #303030;
+            color: #FFBC36;
             font-weight: 400;
             margin-bottom: 30px;
+            text-shadow:#000 1px 1px, #000 -1px 1px;
         }  
         .jumbotron {
 
@@ -82,8 +83,8 @@
         .container-fluid {
             padding: 60px 50px;
         }
-        .bg-grey {
-            background-color: #f6f6f6;
+        .bg-dark-grey {
+            background-color:#818181;
         }
         .logo-small {
             color: #f4511e;
@@ -145,16 +146,14 @@
             color: red;
         }
         a {
-            color:white;
+            color:#FFBC36;
         }
         a:hover {
             text-decoration:none;
         }
-
         .navbar-nav li a:hover, .navbar-nav li.active a {
             color: #f4511e !important;
             background-color: #fff !important;
-
         }
         .navbar-default .navbar-toggle {
             border-color: transparent;
@@ -175,8 +174,6 @@
             margin-bottom: 20px;
             color: #ffffff;
         }
-
-
         li {
             font-family: Montserrat, sans-serif;
         }
@@ -227,11 +224,8 @@
             </div>
             <div class="collapse navbar-collapse" style="background-color: #256384;max-width:100%" id="myNavbar">
                 <ul class="nav navbar-nav mx-auto" style="max-width:100%">
-                    <a href="#about"><li class="nav-item  link-highlight">ABOUT</li></a>
 
-                    <a href="#resume"><li class="nav-item  link-highlight">RESUME</li></a>
-
-                    <a href="#projects"><li class="nav-item link-highlight">PROJECTS</li></a>
+                    <a href="${pageContext.request.contextPath}/Resume/NicholasThompsonResume.pdf" download><li class="nav-item  link-highlight">RESUME</li></a>
 
                     <a href="https://www.github.com/Gnarlic"><li class="nav-item link-highlight">GITHUB</li></a>
 
@@ -242,227 +236,81 @@
             </div>
 
         </nav>
-        <div class="jumbotron text-center" style="background:transparent" id="myPage">
-            <h1 style="font-size:9.0vw;text-shadow:-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Hi, I'm Nicholas Thompson.</h1>
-        </div>
-        <div id="about"></div>
-        <div  class="container pt-4" style="background-color:#064378;">
-            <div class="row text-white">
-                <div class="col-md-3"><div></div><img src="${pageContext.request.contextPath}/images/1202182203_HDR_3.jpg" style="width:100%;border:solid black 2px"></div>
-                <div class="col-md-6"><div></div>
-                    <p class="text-center" style="font-size:20pt">
-                        I'm a full stack web developer ready to tackle any project, and am skilled in utilizing RESTful design, Java, Spring/Spring Boot, and SQL to build efficient solutions. As an inquisitive INTP in Myers-Briggs model, I am constantly on the hunt to expand and learn new skills. Here you can check out my latest work.
-                        I'm currently developing Mapspace, a web application for saving locations on a map. As someone who enjoys traveling remote forest roads, I thought it would be useful to note down the places I found in one place, and be able to save information about them. So I decided to build that myself!
-                    </p>
-                </div>
-                <div class="col-md-3 text-center"><div></div>
-                    <i class="fa fa-code logo" style="color:#ffffff;text-shadow:-3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;"></i>     
+        <div class="container" style="padding-top:50px">
+            <div class="row" style="height:90vh">
+                <div id="infopane" class="col-md-4" style="background-color:rgba(121,184,220, 0.8);padding-top:20px;padding-bottom:20px">
+
+                    <div>
+                        <img src="${pageContext.request.contextPath}/images/1202182203_HDR_3.jpg" style="width:100%;border:solid black 2px">
+                    </div>
+
+                    <div style="padding-top:30px">
+                        <h2 style="margin-bottom:10px;text-shadow:#000 1px 1px, #000 -1px 1px;">I'm Nicholas Thompson,</h2>
+                        <div class="text-white">
+                            a full stack web developer ready to tackle any project, and am skilled in utilizing RESTful design, Java, Spring, MySQL, and other technologies to build efficient solutions. As an inquisitive INTP in Myers-Briggs model, I am constantly on the hunt to expand and learn new skills. Here you can check out my latest work.
+                            I'm currently developing Mapspace, a web application for pinning locations that you've visited, want to visit, or for any other reason using the Google Maps API.
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-            <hr/>
-        </div>
-        <div id="resume" class="container text-white" style="background-color:#064378">
-            <div class="text-center">
-                <h2 class="text-white">Technical Skills</h2>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <ul style="list-style-type:none">
-                        <li>Java</li>
-                        <li>HTML / CSS / Javascript</li>
-                        <li>MySql</li>
-                        <li>JavaServer Pages (JSP)</li>
-                        <li>OOP</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul style="list-style-type:none">
-                        <li>SOAP/REST</li>
-                        <li>TDD</li>
-                        <li>jQuery</li>
-                        <li>Data / Class Modeling</li>
-                        <li>Netbeans IDE</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul style="list-style-type:none">
-                        <li>Spring MVC / JDBC / SECURITY</li>
-                        <li>Bootstrap</li>
-                        <li>Version Control (Git)</li>
-                        <li>Adobe Photoshop</li>
-                        <li>Adobe Illustrator</li>
-                    </ul>
-                </div>
-            </div>
-            <hr/>
-            <div class="text-center">
-                <h2 class="text-white">Technical Experience</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <p>
-                        The Software Guild - <br>
-                        Java Apprentice
-                    <ul>
-                        <li>
-                            Full-stack development using Java, Spring frameworks, HTML, CSS, Javascript and Bootstrap. Used Atlassing tools for version control, workflow management, and communication.
-                            Built console and web based programs, including:
-                            <ul>
+                <div id="main" class="col-md-8" style="background-color:rgba(179,179,179, 0.8);padding-top:30px">
+                    <div class="text-center">
+                        <h2 class="" style="margin-bottom:10px;text-shadow:#000 1px 1px, #000 -1px 1px;color: #FFBC36;">Technical Skills</h2>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <ul style="list-style-type:none">
+                                <li>Java</li>
+                                <li>HTML / CSS / Javascript</li>
+                                <li>MySql</li>
+                                <li>JavaServer Pages (JSP)</li>
+                                <li>OOP</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul style="list-style-type:none">
+                                <li>SOAP/REST</li>
+                                <li>TDD</li>
+                                <li>jQuery</li>
+                                <li>Data / Class Modeling</li>
+                                <li>Netbeans IDE</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul style="list-style-type:none">
+                                <li>Spring MVC / JDBC / SECURITY</li>
+                                <li>Bootstrap</li>
+                                <li>Version Control (Git)</li>
+                                <li>Adobe Photoshop</li>
+                                <li>Adobe Illustrator</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h2 class="text-center" style="padding-bottom:10px;text-shadow:#000 1px 1px, #000 -1px 1px;color: #FFBC36;">
+                                Personal Projects</h2><br>
+                            <ul class="text-white">
                                 <li>
-                                    An app for tracking sightings of superbeings. Logged info for superbeings, organizations they belong to, locations, and dates. Specific functions are locked behind user roles implemented using Spring security.
-                                    <a style="text-decoration:underline" href="http://www.gnarlitronic.com/superhero">Click here to check it out</a> - Log in with user "user" and password "password".
+                                    <a href="http://www.gnarlitronic.com/spellsword" style="font-size:16pt;text-decoration:underline;text-shadow:#000 1px 1px">Spellsword</a> - A simple combat rpg game that generates random enemies that you fight. More features to come!
                                 </li>
                                 <li>
-                                    A vending machine application that tracks inventory, currency entered, and returns correct change in the least amount of coins.
+                                    <a style="font-size:16pt;text-decoration:underline;text-shadow:#000 1px 1px" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Simple calculator app. Displays last 10 calculations performed.
                                 </li>
                                 <li>
-                                    A Dvd library app that stores dvd information and is searchable.
+                                    <a href="http://www.gnarlitronic.com/tabtracker" style="font-size:16pt;text-decoration:underline;text-shadow:#000 1px 1px">Tab Tracker</a> - Library for storing links to guitar tablature. Utilizes mariaDb to store song name, artist, and link to tabs. Tabs within the database are searchable by song name or artist.
+                                </li>
+                                <li>
+                                    <a href="http://www.gnarlitronic.com/mapspace" style="font-size:16pt;text-decoration:underline;text-shadow:#000 1px 1px">MapSpace</a> -  Web app that utilizes the Google Maps API to display locations that users save. Users can name 
+                                </li>
+                                <li>
+                                    <h3>Other projects are on my Github account</h3>
                                 </li>
                             </ul>
-                        </li>
-                        These applications used Java, MySql, JavaServer Pages, jQuery, JSON, and ajax.
-                    </ul>
-                    </p>
-                    <p>
-                        Experience in the Workplace - <br>
-                    <ul>
-                        <li>
-                            Terminix - Helped implement new system for route management software for field technicians.
-                        </li>
-                        <li>
-                            Delta Global Services - Daily use of command line software for flight and ticketing information.
-                        </li>
-                        <li>
-                            Pizza Factory - Use of excel for sales information, as well as Point-of-Sale software at registers.
-                        </li>
-                    </ul>
-                    </p>
-                </div>
-                <div class="col-md-2">
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="text-center">
-                    <h2 class="text-white">Education</h2>
-                </div>
-                <div>
-                    <table class="table text-center">
-                        <tr>
-                            <th>
-                                The Software Guild
-                            </th>                 
-                            <th>
-                                2017-2018
-                            </th>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                Java Apprenticeship Program
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                Palomar College
-                            </th>
-                            <th>
-                                2008-2013
-                            </th>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                General Education / Illustration
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div id="projects" class="container pt-4" style="background-color:#064378">
-            <div>
-                <h2 class="text-center text-white">Personal Projects</h2>
-            </div>
-            <div>
-                <p class="text-white">
-                    Personal Projects - <br>
-                <ul class="text-white">
-                    <li>
-                        <a href="http://www.gnarlitronic.com/spellsword" style="font-size:16pt;text-decoration:underline">Spellsword</a> - A simple combat rpg game that generates random enemies that you fight. More features to come!
-                        will be hosted here soon, and on github.
-                    </li>
-                    <li>
-                        <a style="font-size:16pt;text-decoration:underline" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Simple calculator app.
-                    </li>
-                    <li>
-                        <a href="http://www.gnarlitronic.com/tabtracker" style="font-size:16pt;text-decoration:underline">Tab Tracker</a> - Library for storing links to guitar tablature. Utilizes mariaDb to store song name, artist, and link to tabs. Tabs within the database are searchable by song name or artist.
-                    </li>
-                    <li>
-                        <a href="http://www.gnarlitronic.com/mapspace" style="font-size:16pt;text-decoration:underline">MapSpace</a> -  Web app for tracking locations that I've visited, and storing notes and images, utilizing the Google Maps API to display locations.
-                    </li>
-                    <li>
-                        <h3>Other projects are on my Github account</h3>
-                    </li>
-                </ul>
-                </p>
-            </div>
-        </div>
-        <div id="contact" class="container pt-4" style="background-color:#064378;">
-            <div class="text-center text-white" style="text-shadow:-3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;height:100%">
-                <h1>Contact Information</h1>
-            </div>
-            <div class="text-white text-center">
-                <p>
-                <ul style="list-style-type:none;">
-                    <li><h1><a style="word-break: break-all" href="mailto:nicholas.seb.thompson@gmail.com" targer="_top">Email: Nicholas.seb.thompson@gmail.com</a></h1></li>
-                    <li><h1>Phone: 541-390-4185</h1></li>
-                </ul>
-                </p>
-            </div>
-        </div>
-
-
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
-        <script src="${pageContext.request.contextPath}/js/home.js"></script>
-
-        <script>
-            $(document).ready(function () {
-                // Add smooth scrolling to all links in navbar + footer link
-                $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
-                    // Make sure this.hash has a value before overriding default behavior
-                    if (this.hash !== "") {
-                        // Prevent default anchor click behavior
-                        event.preventDefault();
-
-                        // Store hash
-                        var hash = this.hash;
-
-                        // Using jQuery's animate() method to add smooth page scroll
-                        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-                        $('html, body').animate({
-                            scrollTop: $(hash).offset().top
-                        }, 900, function () {
-
-                            // Add hash (#) to URL when done scrolling (default click behavior)
-                            window.location.hash = hash;
-                        });
-                    } // End if
-                });
-
-                $(window).scroll(function () {
-                    $(".slideanim").each(function () {
-                        var pos = $(this).offset().top;
-
-                        var winTop = $(window).scrollTop();
-                        if (pos < winTop + 600) {
-                            $(this).addClass("slide");
-                        }
-                    });
-                });
-            })
-        </script>
     </body>
 </html>
-
