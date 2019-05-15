@@ -5,6 +5,8 @@
  */
 package superchess;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Elnic
@@ -15,6 +17,8 @@ public class SuperChess {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("");
         
     }
     

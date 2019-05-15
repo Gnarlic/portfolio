@@ -6,6 +6,7 @@
 package wordsort;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -77,13 +78,16 @@ public class WordSort {
                 //replaces original string in separated string array with rearranged string
                 String newString = new String(sb1);
                 array[z] = newString;
-                System.out.println(array[z]);
+                //System.out.println(array[z]);
             }
             System.out.println("\"" + inputString + "\" with each word sorted alphabetically");
+            System.out.print("\"");
             for (String array1 : array) {
                 System.out.print(array1 + " ");
             }
-            System.out.println("");
+            System.out.println("\"");
+            System.out.println(inputString);
+            countLetters(inputString);
             
             Boolean keepGoing = true;
             while (keepGoing == true) {
@@ -109,6 +113,45 @@ public class WordSort {
             }
         }
         System.out.println("Goodbye");
+    }
+    
+    private static int[] countLetters(String string) {
+       int[] letterCount = new int[26];
+       
+       for (int lc = 0; lc < 26; lc++) {
+           System.out.println(string.charAt(lc));
+           int temp = 0;
+           int charCount = 0;
+           for (int cv = 0; cv < string.length()-1; cv++) {
+               if (string.charAt(cv) == charCount+97) {
+                   temp++;
+               } else {
+                   
+               }
+           }
+           charCount++;
+           letterCount[lc] = temp;
+           System.out.println(Arrays.toString(letterCount));
+       }
+        
+       
+        /**for (int w = 0; w < 26; w++) {
+            int temp = 0;
+            for(int q = 0; q <= string.length()-1; q++) {
+                if (string.charAt(q) == 64) {
+                    System.out.println("space");
+                } else if (string.charAt(q) == q+97) {
+                    temp++;
+                }
+            }
+            letterCount[w] = temp;
+        }
+        System.out.println(letterCount.length);
+        for (int m = 0; m < letterCount.length; m ++) {
+            System.out.println(letterCount[m]);
+        }**/
+        
+        return letterCount;
     }
     
 }
