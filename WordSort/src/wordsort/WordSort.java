@@ -6,7 +6,6 @@
 package wordsort;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -22,6 +21,7 @@ public class WordSort {
 
         Scanner sc = new Scanner(System.in);
         Boolean bool = true;
+        String[] stray;
         while (bool == true) {
             String inputString;
             String temp;
@@ -31,7 +31,7 @@ public class WordSort {
             System.out.println("Enter word/sentence, and each word will have its letters rearranged alphabetically.");
             inputString = sc.nextLine().toLowerCase();
 
-            //Divides input string into separate strings when a blank space is encountered.
+            //Divides input string into array of individual word strings when a blank space is encountered.
             //At the end of the loop the final StringBuilder is added to ArrayList<String> stringList
             for (int p = 0; p <= inputString.length() - 1; p++) {
 
@@ -50,6 +50,7 @@ public class WordSort {
 
             //Creates String[] from ArrayList<String>
             String[] array = stringList.toArray(new String[stringList.size()]);
+            stray = array;
             //Rearranges the letters for each word in array, to alphabetical order.
             for (int z = 0; z <= array.length - 1; z++) {
                 String string = array[z];
@@ -80,19 +81,23 @@ public class WordSort {
                 array[z] = newString;
                 //System.out.println(array[z]);
             }
-            System.out.println("\"" + inputString + "\" with each word sorted alphabetically");
+            //Output displaying sorted sentence, word count, and letter count.
+            System.out.println("Each word sorted alphabetically: ");
             System.out.print("\"");
             for (String array1 : array) {
                 System.out.print(array1 + " ");
             }
             System.out.println("\"");
-            System.out.println(inputString);
             int[] count = countLetters(inputString);
+            System.out.println("Number of words in sentence: ");
+            System.out.println(stray.length);
             System.out.println("Number of times each letter was used: ");
             for (int pc = 0; pc < count.length; pc++) {
-                System.out.println(Character.toString((char) (pc+97)) + ": " + count[pc]);
+                if (count[pc] > 0) {
+                    System.out.println(Character.toString((char) (pc + 97)) + ": " + count[pc]);
+                }
             }
-            
+            //User choice to continue program
             Boolean keepGoing = true;
             while (keepGoing == true) {
                 System.out.println("Continue? (y/n)");
@@ -108,7 +113,7 @@ public class WordSort {
                             bool = false;
                             break;
                         default:
-                            
+
                             break;
                     }
                 } else {
@@ -118,41 +123,25 @@ public class WordSort {
         }
         System.out.println("Goodbye");
     }
+
     //Counts number of times each letter (a-z) is used
     private static int[] countLetters(String string) {
-       int[] letterCount = new int[26];
-       int temp = 0;
-       for (int lc = 0; lc < 26; lc++) {
-           temp = 0;
-           //loops through string and checks for character
-           for (int cv = 0; cv < string.length(); cv++) {
-               if (string.charAt(cv) == lc+97) {
-                   temp++;
-               } else {
-                   
-               }
-           }
-           letterCount[lc] = temp;
-       }
-        
-       
-        /**for (int w = 0; w < 26; w++) {
-            int temp = 0;
-            for(int q = 0; q <= string.length()-1; q++) {
-                if (string.charAt(q) == 64) {
-                    System.out.println("space");
-                } else if (string.charAt(q) == q+97) {
+        int[] letterCount = new int[26];
+        int temp = 0;
+        for (int lc = 0; lc < 26; lc++) {
+            temp = 0;
+            //loops through string and checks for character
+            for (int cv = 0; cv < string.length(); cv++) {
+                if (string.charAt(cv) == lc + 97) {
                     temp++;
+                } else {
+
                 }
             }
-            letterCount[w] = temp;
+            letterCount[lc] = temp;
         }
-        System.out.println(letterCount.length);
-        for (int m = 0; m < letterCount.length; m ++) {
-            System.out.println(letterCount[m]);
-        }**/
-        
+
         return letterCount;
     }
-    
+
 }
