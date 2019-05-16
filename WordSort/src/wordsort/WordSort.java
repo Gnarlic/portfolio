@@ -87,7 +87,11 @@ public class WordSort {
             }
             System.out.println("\"");
             System.out.println(inputString);
-            countLetters(inputString);
+            int[] count = countLetters(inputString);
+            System.out.println("Number of times each letter was used: ");
+            for (int pc = 0; pc < count.length; pc++) {
+                System.out.println(Character.toString((char) (pc+97)) + ": " + count[pc]);
+            }
             
             Boolean keepGoing = true;
             while (keepGoing == true) {
@@ -114,24 +118,21 @@ public class WordSort {
         }
         System.out.println("Goodbye");
     }
-    
+    //Counts number of times each letter (a-z) is used
     private static int[] countLetters(String string) {
        int[] letterCount = new int[26];
-       
+       int temp = 0;
        for (int lc = 0; lc < 26; lc++) {
-           System.out.println(string.charAt(lc));
-           int temp = 0;
-           int charCount = 0;
-           for (int cv = 0; cv < string.length()-1; cv++) {
-               if (string.charAt(cv) == charCount+97) {
+           temp = 0;
+           //loops through string and checks for character
+           for (int cv = 0; cv < string.length(); cv++) {
+               if (string.charAt(cv) == lc+97) {
                    temp++;
                } else {
                    
                }
            }
-           charCount++;
            letterCount[lc] = temp;
-           System.out.println(Arrays.toString(letterCount));
        }
         
        
