@@ -18,8 +18,12 @@
     <tx:annotation-driven/>
     <context:component-scan
         base-package="nt.application"/>
+    <bean id="InputStringDao"
+          class="nt.application.alphabetizer.dao.StringInputDaoImpl">
+    
+    </bean>
     <bean id="AlphabetizerService"
           class="nt.application.alphabetizer.service.AlphabetizerServiceImpl">
-    
+          <constructor-arg ref="InputStringDao"/>
     </bean>
 </beans>

@@ -67,7 +67,9 @@ function listWeapons() {
 
 function attack() {
 
-    var myContextPath = $(this).attr('myContextPath');
+    
+    
+    /*var myContextPath = $(this).attr('myContextPath');
     var actualPath = requestContextPath + ("/attack");
 
     $.ajax({
@@ -86,6 +88,6 @@ function attack() {
         error: function () {
             $('#errorMessages').val('Error calling web service. Please try again later.');
         }
-    });
+    });*/
 }
 

@@ -6,6 +6,11 @@
 package nt.application.alphabetizer.service;
 
 import java.util.ArrayList;
+import javax.inject.Inject;
+import nt.application.alphabetizer.dao.InputStringDao;
+import nt.application.alphabetizer.dao.InputStringPersistenceException;
+import nt.application.alphabetizer.dao.StringInputDaoImpl;
+import nt.application.alphabetizer.model.InputString;
 
 /**
  *
@@ -13,6 +18,15 @@ import java.util.ArrayList;
  */
 public class AlphabetizerServiceImpl implements AlphabetizerService {
 
+    private InputStringDao iDao;
+    
+    @Inject
+    AlphabetizerServiceImpl(InputStringDao iDao) {
+        this.iDao = iDao;
+    }
+    
+    
+    
     @Override
     public String returnResults(String inputString) {
 
@@ -96,6 +110,12 @@ public class AlphabetizerServiceImpl implements AlphabetizerService {
         }
 
         return letterCount;
+    }
+
+    @Override
+    public InputString saveInputString(InputString inputString) throws InputStringPersistenceException {
+        iDao.storeInputString(inputString);
+        return inputString;
     }
 
 }

@@ -5,6 +5,9 @@
  */
 package nt.application.alphabetizer.service;
 
+import nt.application.alphabetizer.dao.InputStringPersistenceException;
+import nt.application.alphabetizer.model.InputString;
+
 /**
  *
  * @author Elnic
@@ -15,4 +18,5 @@ public interface AlphabetizerService {
     
     public int[] countLetters(String string);
     
+    public InputString saveInputString(InputString inputString) throws InputStringPersistenceException;
 }

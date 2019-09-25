@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Elnic
  */
-public class WordSort {
+public class WordSort{
 
     /**
      * @param args the command line arguments
