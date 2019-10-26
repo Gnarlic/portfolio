@@ -125,6 +125,7 @@
                     var contextPath = '${pageContext.request.contextPath}';
                     
                     var user = '${pageContext.request.userPrincipal.name}';
+                    var userId = '${pageContext.request.userPrincipal}';
                 </script>
             </div>
             <!-- Placed at the end of the document so the pages load faster -->

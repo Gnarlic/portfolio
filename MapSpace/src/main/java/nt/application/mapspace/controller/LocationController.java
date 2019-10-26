@@ -7,6 +7,7 @@ package nt.application.mapspace.controller;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,6 +27,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  *
@@ -52,11 +55,22 @@ public class LocationController {
         }
     }
     
-    @RequestMapping(value="/newLocation", method = RequestMethod.POST)
+    @RequestMapping(value="/newLocation/{user}", method = RequestMethod.POST)
     @ResponseBody
-    public Location newLocation(HttpServletRequest request, HttpServletResponse response) {
+    public Location newLocation(@RequestBody Map<String, Object> loc, HttpServletRequest rq) {
         Location location = new Location();
-        JSONArray jArray = new JSONArray();
+        JSONObject obj = new JSONObject(loc);
+        System.out.println(rq.getParameter("user"));
+        //JSONArray jArray = new JSONArray();
+        User user = uDao.getUser(rq.getParameter("user"));
+        System.out.println(loc);
+        String locationName = obj.getJSONObject("location").getString("locationName");
+        String lat = obj.getJSONObject("location").getString("lat");
+        String lon = obj.getJSONObject("location").getString("lon");
+        location.setLocationName(locationName);
+        location.setLat(Double.parseDouble(lat));
+        location.setLon(Double.parseDouble(lon));
+        lDao.addLocation(location, user.getId());
         return location;
     }
 

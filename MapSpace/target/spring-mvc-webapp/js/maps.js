@@ -22,8 +22,11 @@ $(document).ready(function () {
         addMarker(textToMarker);
     });
     $('#deleteLocation').click(function () {
-        alert("test");
+        deleteMarkers();
     });
+//    $('#submit-button').click(function () {
+//        addNewMarker();
+//    });
 
 
 });
@@ -43,7 +46,7 @@ window.initMap = function () {
     if (user === "") {
         user = 'default';
     }
-
+    console.log(userId);
     $.ajax({
         type: 'GET',
 
@@ -167,7 +170,30 @@ function addMarker(location) {
 
 function addNewMarker() {
     var newMarker = currentMarker;
-    actualPath = contextPath + ("")
+    actualPath = contextPath + ("/newLocation?user="+user);
+    var obj = {
+        "location": { 
+            "locationName": $('#location-name').val(),
+            "lat": $('#lat').val(),
+            "lon": $('#lon').val()
+        }
+    };
+    var objJSON = JSON.stringify(obj);
+    console.log(objJSON);
+    console.log(actualPath);
+    $.ajax({
+        type: 'POST',
+        url: actualPath,
+        data: objJSON,
+        contentType: 'application/json',
+        success: function(){
+            alert("success");
+        },
+        error: function(){
+            alert("failure");
+        }
+    });
+    
 }
 
 function deleteMarkers() {
