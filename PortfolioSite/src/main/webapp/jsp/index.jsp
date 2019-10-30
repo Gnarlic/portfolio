@@ -29,15 +29,15 @@
             background-size: 200% 200%;
             background-repeat:repeat-x;
             background-position: 0 100%;
-            transition: background-position 0.5s;
+            /*transition: background-position 0.5s;*/
             padding-top:15px;
             padding-right:10px;
-            padding-left:3px;
+            padding-left:10px;
         }
-        .link-highlight:hover {
-            background-position: -100% 100%;
-            color:#767681;
-        }
+        /*        .link-highlight:hover {
+                    background-position: -100% 100%;
+                    color:#767681;
+                }*/
         .top {
             border-top:solid black 3px;
             border-bottom:solid black 3px;
@@ -104,16 +104,6 @@
             height: 100%;
             margin-bottom: 10px;
         }
-        .carousel-control.right, .carousel-control.left {
-            background-image: none;
-            color: #f4511e;
-        }
-        .carousel-indicators li {
-            border-color: #f4511e;
-        }
-        .carousel-indicators li.active {
-            background-color: #f4511e;
-        }
         .item h4 {
             font-size: 19px;
             line-height: 1.375em;
@@ -137,16 +127,18 @@
             border-radius: 0;
             font-family: Montserrat, sans-serif;
         }        
-        .navbar li a, .navbar .navbar-brand {
-            height:100%;
-            color: #fff !important;
-            padding:2px;
-        }
-        .navbar-nav li a:hover, .navbar-nav li.active a {
-            color: red;
-        }
         a {
             color:#CAB58A;
+        }
+        #nav-links a {
+            transition-property: background-color, color, border-bottom-left-radius, border-top-right-radius;
+            transition-duration: 0.5s, 0.1s, 0.5s, 0.5s;
+        }
+        #nav-links a:hover {
+            background-color: #3389B8;
+            color: #F2DEB6;
+            border-bottom-left-radius: 50%;
+            border-top-right-radius: 50%;
         }
         a:hover {
             text-decoration:none;
@@ -176,6 +168,14 @@
         }
         li {
             font-family: Montserrat, sans-serif;
+        }
+        #home-button a{
+
+            transition-property: background-color;
+            transition-duration: 1s;
+        }
+        #home-button a:hover {
+            background-color:#3389B8;
         }
         @keyframes slide {
             0% {
@@ -220,10 +220,10 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
                     <span class="navbar-toggler-icon" style="color:white"></span>
                 </button>
-                <a class="navbar-brand" href="#myPage">Home</a>
+                <a id="home-button" class="navbar-brand" href="#myPage">Home</a>
             </div>
             <div class="collapse navbar-collapse" style="background-color: #256384;max-width:100%" id="myNavbar">
-                <ul class="nav navbar-nav mx-auto" style="max-width:100%">
+                <ul id="nav-links" class="nav navbar-nav mx-auto" style="max-width:100%">
 
                     <a href="${pageContext.request.contextPath}/Resume/NicholasThompsonResume.pdf" download><li class="nav-item  link-highlight">RESUME</li></a>
 
@@ -247,8 +247,8 @@
                     <div style="padding-top:30px">
                         <h2 style="margin-bottom:10px;text-shadow:#000 1px 1px, #000 -1px 1px;">I'm Nicholas Thompson,</h2>
                         <div class="text-white">
-                            a full stack web developer ready to tackle any project, and am skilled in utilizing RESTful design, Java, Spring, MySQL, and other technologies to build efficient solutions. As an inquisitive INTP in Myers-Briggs model, I am constantly on the hunt to expand and learn new skills. Here you can check out my latest work.
-                            I'm currently developing Mapspace, a web application for pinning locations that you've visited, want to visit, or for any other reason using the Google Maps API.
+                            a committed full-stack developer, with a foundation provided by The Software Guild. As an inquisitive INTP in Myers-Briggs model,
+                            I am constantly on the hunt to expand and learn new skills. Here you can check out my latest work.
                         </div>
                     </div>
                 </div>
