@@ -64,6 +64,11 @@
             color: #CAB58A;
             font-weight: 600;
             margin-bottom: 30px;
+            text-shadow:
+                -1px -1px 0 #000,  
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
 
         }
         h4 {
@@ -72,7 +77,11 @@
             color: #CAB58A;
             font-weight: 400;
             margin-bottom: 30px;
-            text-shadow:#000 1px 1px, #000 -1px 1px;
+            text-shadow:
+                -1px -1px 0 #000,  
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
         }  
         .jumbotron {
 
@@ -166,6 +175,39 @@
             margin-bottom: 20px;
             color: #ffffff;
         }
+        li a {
+/*            text-shadow:
+                -0.5px -0.5px 0 #000,  
+                0.5px -0.5px 0 #000,
+                -0.5px 0.5px 0 #000,
+                0.5px 0.5px 0 #000;*/
+                color:#CAB58A;
+                font-weight: bold;
+            transition-property:color;
+            transition-duration:0.25s;
+        }
+        li a:hover {
+            color:#B29E76;
+        }
+        #infopane {
+            background-color:rgba(121,184,220, 0.8);
+            padding-top:20px;
+            padding-bottom:20px;
+            transition-property:background-color;
+            transition-duration:0.25s;
+        }
+        #infopane:hover {
+            background-color:rgba(121,184,220, 0.9);
+        }
+        #main {
+            background-color:rgba(137, 137, 137, 0.8);
+            transition-property:background-color;
+            transition-duration:0.25s;
+        }
+        /*179,179,179*/
+        #main:hover{
+            background-color:rgba(137, 137, 137, 0.9)
+        }
         li {
             font-family: Montserrat, sans-serif;
         }
@@ -238,14 +280,14 @@
         </nav>
         <div class="container" style="padding-top:50px">
             <div class="row" style="height:90vh">
-                <div id="infopane" class="col-md-4" style="background-color:rgba(121,184,220, 0.9);padding-top:20px;padding-bottom:20px">
+                <div id="infopane" class="col-md-4" style="padding-top:20px;padding-bottom:20px">
 
                     <div>
                         <img src="${pageContext.request.contextPath}/images/1202182203_HDR_3.jpg" style="width:100%;border:solid black 2px">
                     </div>
 
                     <div style="padding-top:30px">
-                        <h2 style="margin-bottom:10px;text-shadow:#000 1px 1px, #000 -1px 1px;">I'm Nicholas Thompson,</h2>
+                        <h2 style="margin-bottom:10px;">I'm Nicholas Thompson,</h2>
                         <div class="text-white">
                             a committed full-stack developer, with a foundation provided by The Software Guild. As an inquisitive INTP in Myers-Briggs model,
                             I am constantly on the hunt to expand and learn new skills. Here you can check out my latest work.
@@ -253,11 +295,11 @@
                     </div>
                 </div>
 
-                <div id="main" class="col-md-8" style="background-color:rgba(179,179,179, 0.9);padding-top:30px">
+                <div id="main" class="col-md-8" style="padding-top:30px">
                     <div class="text-center">
-                        <h2 class="" style="margin-bottom:20px;text-shadow:#000 1px 1px, #000 -1px 1px;color: #CAB58A;">Technical Skills</h2>
+                        <h2 class="" style="margin-bottom:20px;color: #CAB58A;">Technical Skills</h2>
                     </div>
-                    <div class="row text-center">
+                    <div id="tech-skills" class="row text-center">
                         <div class="col-md-4">
                             <ul style="list-style-type:none">
                                 <li>Java</li>
@@ -290,22 +332,22 @@
                     <hr/>
                     <br>
 
-                    <div>
+                    <div id="personal-projects">
                         <div>
-                            <h2 class="text-center" style="padding-bottom:10px;text-shadow:#000 1px 1px, #000 -1px 1px;color: #CAB58A;">
+                            <h2 class="text-center" style="padding-bottom:10px;color: #CAB58A;">
                                 Personal Projects</h2>
                             <ul class="text-white">
                                 <li>
-                                    <a href="http://www.gnarlitronic.com/spellsword" style="font-size:16pt;text-decoration:underline;text-shadow:#000 1px 1px">Spellsword</a> - A simple combat rpg game that generates random enemies that you fight. More features to come!
+                                    <a href="http://www.gnarlitronic.com/spellsword" style="font-size:16pt;text-decoration:underline;">Spellsword</a> - A simple combat rpg game that generates random enemies that you fight. More features to come!
                                 </li>
                                 <li>
-                                    <a style="font-size:16pt;text-decoration:underline;text-shadow:#000 1px 1px" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Simple calculator app. Displays last 10 calculations performed.
+                                    <a style="font-size:16pt;text-decoration:underline;" href="http://www.gnarlitronic.com/calculator">Calculator</a> - Simple calculator app. Displays last 10 calculations performed.
                                 </li>
                                 <li>
-                                    <a href="http://www.gnarlitronic.com/tabtracker" style="font-size:16pt;text-decoration:underline;text-shadow:#000 1px 1px">Tab Tracker</a> - Library for storing links to guitar tablature. Utilizes mariaDb to store song name, artist, and link to tabs. Tabs within the database are searchable by song name or artist.
+                                    <a href="http://www.gnarlitronic.com/tabtracker" style="font-size:16pt;text-decoration:underline;">Tab Tracker</a> - Library for storing links to guitar tablature. Utilizes mariaDb to store song name, artist, and link to tabs. Tabs within the database are searchable by song name or artist.
                                 </li>
                                 <li>
-                                    <a href="http://www.gnarlitronic.com/mapspace" style="font-size:16pt;text-decoration:underline;text-shadow:#000 1px 1px">MapSpace</a> -  Web app that utilizes the Google Maps API to display locations that users save. Users can name 
+                                    <a href="http://www.gnarlitronic.com/mapspace" style="font-size:16pt;text-decoration:underline;">MapSpace</a> -  Web app that utilizes the Google Maps API to display locations that users save. Users can name 
                                 </li>
                                 <li>
                                     <h3>Other projects are on my Github account</h3>
